@@ -5,4 +5,20 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <string name="hint_username">E-mail</string>
+    <string name="hint_password">Senha</string>
+
+    <string name="button_in">Entrar</string>
+    <string name="button_cadastrar">Cadastrar</string>
+
+    <string name="load_login">Verificando credenciais</string>
+    <string name="load_categorias">Recuperando categorias</string>
+
+    <string name="error_email_empty">Email não pode ser vazio</string>
+    <string name="error_password_empty">Senha não pode ser vazia</string>
+    <string name="error_password_small">Senha não pode ter menos que 6 caracteres</string>
+
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -1,4 +1,4 @@
-package homeservice.br.ufg.inf.ria.homeservicedefinitivo;
+package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter;
 
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -11,6 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 
 public class ListaCategoriasActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
