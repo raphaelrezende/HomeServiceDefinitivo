@@ -1,4 +1,4 @@
-package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter;
+package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.categorias;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
