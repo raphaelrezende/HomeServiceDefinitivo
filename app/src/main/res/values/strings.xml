@@ -1,10 +1,8 @@
 <resources>
-    <string name="app_name">HomeServiceDefinitivo</string>
+    <string name="app_name">HomeService</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <string name="action_settings">Settings</string>
 
     <string name="hint_username">E-mail</string>
     <string name="hint_password">Senha</string>
@@ -19,6 +17,11 @@
     <string name="error_password_empty">Senha não pode ser vazia</string>
     <string name="error_password_small">Senha não pode ter menos que 6 caracteres</string>
 
+    <string name="drawer_inicio">Inicio</string>
+    <string name="drawer_avisos">Avisos</string>
+    <string name="drawer_compras">Minhas Compras</string>
+    <string name="drawer_editar_perfil">Editar Perfil</string>
+    <string name="drawer_sair">Sair</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
