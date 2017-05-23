@@ -1,19 +1,21 @@
 package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.categorias;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.BaseActivity;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.avisos.AvisosFragment;
 
-public class ListaCategoriasActivity extends AppCompatActivity
+public class ListaCategoriasActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
@@ -23,7 +25,8 @@ public class ListaCategoriasActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        initView();
+        ListaCategoriasFragment fragment = new ListaCategoriasFragment();
+        initView(fragment);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -33,6 +36,7 @@ public class ListaCategoriasActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.bringToFront();
     }
 
     @Override
@@ -54,7 +58,6 @@ public class ListaCategoriasActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
@@ -63,6 +66,8 @@ public class ListaCategoriasActivity extends AppCompatActivity
         if (id == R.id.nav_inicio) {
             // Handle the camera action
         } else if (id == R.id.nav_avisos) {
+            AvisosFragment fragment = new AvisosFragment();
+            initView(fragment);
 
         } else if (id == R.id.nav_compras) {
 
@@ -77,12 +82,12 @@ public class ListaCategoriasActivity extends AppCompatActivity
         return true;
     }
 
-    public void initView(){
+    public void initView(Fragment fragment){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        ListaCategoriasFragment fragment = new ListaCategoriasFragment();
         fragmentTransaction.replace(R.id.container, fragment);
         fragmentTransaction.commit();
     }
+
 }
