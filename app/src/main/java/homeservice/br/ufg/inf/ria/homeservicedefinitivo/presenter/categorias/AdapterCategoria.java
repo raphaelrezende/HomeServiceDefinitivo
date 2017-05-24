@@ -1,16 +1,21 @@
 package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.categorias;
 
 import android.content.Context;
+import android.content.Intent;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.List;
 
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Categoria;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.servicos.ServicosFragment;
 
 /**
  * Created by raphael on 18/05/17.
@@ -45,11 +50,11 @@ public class AdapterCategoria extends RecyclerView.Adapter<AdapterCategoria.Cate
         final Categoria categoria = categorias.get(position);
         holder.nameView.setText(categoria.getNome());
         holder.descriptionView.setText(categoria.getDescricao());
-//
+
 //        holder.itemView.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                abreDescricao(categoria);
+//                posta(categoria);
 //            }
 //        });
     }
@@ -78,13 +83,12 @@ public class AdapterCategoria extends RecyclerView.Adapter<AdapterCategoria.Cate
             descriptionView = (TextView)itemView.findViewById(R.id.label_categoria_desc);
         }
     }
-
-//    private void abreDescricao(Categoria categoria) {
-//        Intent intent = new Intent(this.context, CategoriaDetailActivity.class);
+//
+//    private void posta(Categoria categoria) {
+//        ServicosFragment fragment = new ServicosFragment();
 //        EventBus.getDefault().postSticky(categoria);
-//        context.startActivity(intent);
-//
-//
-//    }
+//        ListaCategoriasActivity cat = (ListaCategoriasActivity) context;
+//        cat.initView(fragment);
+//        }
 
 }

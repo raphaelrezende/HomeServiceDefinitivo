@@ -1,6 +1,8 @@
 package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.categorias;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,6 +16,7 @@ import homeservice.br.ufg.inf.ria.homeservicedefinitivo.BaseFragment;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.data.CategoriaDAO;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Categoria;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.servicos.ServicosFragment;
 
 
 public class ListaCategoriasFragment extends BaseFragment {
