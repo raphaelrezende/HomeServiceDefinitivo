@@ -1,5 +1,6 @@
 package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.categorias;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -14,9 +15,10 @@ import android.view.MenuItem;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.BaseActivity;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.avisos.AvisosFragment;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.servicos.ServicosFragment;
 
 public class ListaCategoriasActivity extends BaseActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, ServicosFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,11 +66,11 @@ public class ListaCategoriasActivity extends BaseActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_inicio) {
-            // Handle the camera action
+            ListaCategoriasFragment fragment = new ListaCategoriasFragment();
+            initView(fragment);
         } else if (id == R.id.nav_avisos) {
             AvisosFragment fragment = new AvisosFragment();
             initView(fragment);
-
         } else if (id == R.id.nav_compras) {
 
         } else if (id == R.id.nav_editar) {
@@ -90,4 +92,8 @@ public class ListaCategoriasActivity extends BaseActivity
         fragmentTransaction.commit();
     }
 
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
 }

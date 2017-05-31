@@ -7,8 +7,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import org.greenrobot.eventbus.EventBus;
 
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Servico;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +28,7 @@ public class ServicosFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    private Servico servico;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -55,6 +60,8 @@ public class ServicosFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        servico = EventBus.getDefault().removeStickyEvent(Servico.class);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);

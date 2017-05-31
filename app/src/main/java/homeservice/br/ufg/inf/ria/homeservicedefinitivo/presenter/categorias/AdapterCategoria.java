@@ -1,8 +1,11 @@
 package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.categorias;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,6 +35,7 @@ public class AdapterCategoria extends RecyclerView.Adapter<AdapterCategoria.Cate
      * The application context
      */
     private Context context;
+    private ListaCategoriasActivity activity;
 
     public AdapterCategoria(List<Categoria> categorias, Context context){
         this.categorias = categorias;
@@ -51,12 +55,12 @@ public class AdapterCategoria extends RecyclerView.Adapter<AdapterCategoria.Cate
         holder.nameView.setText(categoria.getNome());
         holder.descriptionView.setText(categoria.getDescricao());
 
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                posta(categoria);
-//            }
-//        });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                posta(categoria);
+            }
+        });
     }
 
     @Override
@@ -83,12 +87,18 @@ public class AdapterCategoria extends RecyclerView.Adapter<AdapterCategoria.Cate
             descriptionView = (TextView)itemView.findViewById(R.id.label_categoria_desc);
         }
     }
-//
-//    private void posta(Categoria categoria) {
-//        ServicosFragment fragment = new ServicosFragment();
-//        EventBus.getDefault().postSticky(categoria);
-//        ListaCategoriasActivity cat = (ListaCategoriasActivity) context;
-//        cat.initView(fragment);
-//        }
 
+    private void posta(Categoria categoria) {
+        ServicosFragment fragment = new ServicosFragment();
+        EventBus.getDefault().postSticky(categoria);
+        activity.initView(fragment);
+    }
+
+    public ListaCategoriasActivity getActivity() {
+        return activity;
+    }
+
+    public void setActivity(ListaCategoriasActivity activity) {
+        this.activity = activity;
+    }
 }

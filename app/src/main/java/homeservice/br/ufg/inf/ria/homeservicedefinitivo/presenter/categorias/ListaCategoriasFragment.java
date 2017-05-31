@@ -57,7 +57,8 @@ public class ListaCategoriasFragment extends BaseFragment {
     public void initRecycler() {
         RecyclerView recyclerView = (RecyclerView) getView().findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        adapter = new AdapterCategoria(categoriaList, getActivity());
+        adapter = new AdapterCategoria(categoriaList, getContext());
+        adapter.setActivity((ListaCategoriasActivity) getActivity());
         recyclerView.setAdapter(adapter);
     }
 
