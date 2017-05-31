@@ -1,8 +1,6 @@
 package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.categorias;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,25 +14,21 @@ import homeservice.br.ufg.inf.ria.homeservicedefinitivo.BaseFragment;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.data.CategoriaDAO;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Categoria;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.servicos.ServicosFragment;
 
 
 public class ListaCategoriasFragment extends BaseFragment {
+
     private List<Categoria> categoriaList;
     private AdapterCategoria adapter;
     CategoriaDAO categoriaDAO;
 
-
     public ListaCategoriasFragment() {
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         View view = inflater.inflate(R.layout.fragment_lista_categorias, container, false);
-
         categoriaList = new LinkedList<>();
         //setHasOptionsMenu(true);
         return view;
@@ -55,7 +49,7 @@ public class ListaCategoriasFragment extends BaseFragment {
     }
 
     public void initRecycler() {
-        RecyclerView recyclerView = (RecyclerView) getView().findViewById(R.id.recycler_view);
+        RecyclerView recyclerView = (RecyclerView) getView().findViewById(R.id.recycler_view_categorias);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         adapter = new AdapterCategoria(categoriaList, getContext());
         adapter.setActivity((ListaCategoriasActivity) getActivity());

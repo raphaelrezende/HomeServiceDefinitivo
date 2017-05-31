@@ -13,11 +13,10 @@
         android:id="@+id/relativedofragment"
         android:layout_marginTop="?attr/actionBarSize">
 
-        <TextView
-            android:id="@+id/categoria_nome"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view_servicos"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Deu certo"/>
+            android:layout_height="match_parent" />
 
     </RelativeLayout>
 

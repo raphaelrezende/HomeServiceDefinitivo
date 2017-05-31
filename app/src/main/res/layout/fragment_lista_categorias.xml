@@ -13,7 +13,7 @@
         android:layout_marginTop="?attr/actionBarSize">
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler_view"
+            android:id="@+id/recycler_view_categorias"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </RelativeLayout>

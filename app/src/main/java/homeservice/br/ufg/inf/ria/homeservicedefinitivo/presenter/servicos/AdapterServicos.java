@@ -15,6 +15,7 @@ import java.util.List;
 
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Servico;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.categorias.ListaCategoriasActivity;
 
 /**
  * Created by raphael on 18/05/17.
@@ -26,6 +27,8 @@ public class AdapterServicos extends RecyclerView.Adapter<AdapterServicos.Servic
      * List of servicos
      */
     private List<Servico> servicos;
+
+    private ListaCategoriasActivity activity;
 
     /**
      * The application context
@@ -90,6 +93,13 @@ public class AdapterServicos extends RecyclerView.Adapter<AdapterServicos.Servic
 //
 //
 //    }
+public ListaCategoriasActivity getActivity() {
+    return activity;
+}
+
+    public void setActivity(ListaCategoriasActivity activity) {
+        this.activity = activity;
+    }
 
 }
 
