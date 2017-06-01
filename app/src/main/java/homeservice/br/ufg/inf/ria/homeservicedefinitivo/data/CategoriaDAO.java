@@ -18,11 +18,11 @@ import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Categoria;
 public class CategoriaDAO extends SQLiteOpenHelper {
 
     private static final String DB_NOME = "homeservice.db";
-    private static final int DB_VERSION = 2;
+    private static final int DB_VERSION = 5;
     private static final String TABLE_CATEGORIAS = "categorias";
 
     //COLUMN_NOMES
-    private static final String ROW_ID = "id";
+    private static final String ROW_ID = "_idCategoria";
     private static final String ROW_NOME = "nome";
     private static final String ROW_DESCRICAO = "descricao";
 
