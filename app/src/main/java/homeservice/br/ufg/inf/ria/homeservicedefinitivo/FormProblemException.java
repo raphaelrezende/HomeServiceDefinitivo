@@ -1,4 +1,4 @@
-package homeservice.br.ufg.inf.ria.homeservicedefinitivo.model;
+package homeservice.br.ufg.inf.ria.homeservicedefinitivo;
 
 /**
  * Created by raphael on 18/05/17.

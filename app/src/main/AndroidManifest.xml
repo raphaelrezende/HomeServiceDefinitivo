@@ -9,6 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data android:name="DATABASE" android:value="banco_service.db" />
+        <meta-data android:name="VERSION" android:value="10" />
+        <meta-data android:name="QUERY_LOG" android:value="true" />
+        <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="homeservice.br.ufg.inf.ria.homeservicedefinitivo.model" />
         <activity
             android:name=".presenter.categorias.ListaCategoriasActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"

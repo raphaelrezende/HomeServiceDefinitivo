@@ -1,12 +1,15 @@
 package homeservice.br.ufg.inf.ria.homeservicedefinitivo.model;
 
+import com.orm.dsl.Table;
+
 /**
  * Created by raphael on 23/05/17.
  */
 
+@Table
 public class Servico {
 
-    private int id;
+    private Long id;
     private String nome;
     private String descricao;
     private Double preco;
@@ -16,14 +19,14 @@ public class Servico {
     public Servico() {
     }
 
-    public Servico(int id, String nome, String descricao, Categoria categoria) {
+    public Servico(Long id, String nome, String descricao, Categoria categoria) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
         this.categoria = categoria;
     }
 
-    public Servico(int id, String nome, String descricao, Double preco, String cidade, Categoria categoria) {
+    public Servico(Long id, String nome, String descricao, Double preco, String cidade, Categoria categoria) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
@@ -32,11 +35,11 @@ public class Servico {
         this.categoria = categoria;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

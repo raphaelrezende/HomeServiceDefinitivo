@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.orm.SugarRecord;
+
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
@@ -17,7 +19,6 @@ import java.util.List;
 
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.BaseFragment;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.data.ServicoDAO;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Categoria;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Servico;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.categorias.ListaCategoriasActivity;
@@ -28,7 +29,6 @@ public class ServicosFragment extends BaseFragment {
     private Categoria categoria;
     private List<Servico> listaServicos = new ArrayList<Servico>();
     private AdapterServicos adapter;
-    ServicoDAO servicoDAO;
 
     private OnFragmentInteractionListener mListener;
 
@@ -40,7 +40,7 @@ public class ServicosFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         categoria = EventBus.getDefault().removeStickyEvent(Categoria.class);
 
-       return inflater.inflate(R.layout.fragment_servicos, container, false);
+        return inflater.inflate(R.layout.fragment_servicos, container, false);
 
     }
 
@@ -84,30 +84,25 @@ public class ServicosFragment extends BaseFragment {
     }
 
     private void popula () {
-        servicoDAO = new ServicoDAO(getActivity());
-        for (int i = 1; i < 4;i++) {
+        for (int i = 2; i < 5;i++) {
             Servico servico = new Servico();
-            servico.setId(i);
+            servico.setId((long) i);
             servico.setNome("serviço" + i);
             servico.setDescricao("descricao" + i);
             servico.setPreco((double) i);
             servico.setCidade("cidade" + i);
             servico.setCategoria(this.categoria);
-            servicoDAO.create(servico);
+            SugarRecord.save(servico);
         }
     }
 
     private  void limpaBD() {
-        servicoDAO = new ServicoDAO(getActivity());
-        List<Servico> servicos = servicoDAO.getAll();
-        for (Servico serv : servicos) {
-            servicoDAO.delete(serv);
-        }
+        SugarRecord.deleteAll(Servico.class);
     }
 
     private void getServicos() {
-        servicoDAO = new ServicoDAO(getActivity());
-        listaServicos = servicoDAO.getAll();
+        showDialogWithMessage(getString(R.string.load_servicos));
+        listaServicos = SugarRecord.listAll(Servico.class);
         adapter.setServicos(listaServicos);
         adapter.notifyDataSetChanged();
         dismissDialog();

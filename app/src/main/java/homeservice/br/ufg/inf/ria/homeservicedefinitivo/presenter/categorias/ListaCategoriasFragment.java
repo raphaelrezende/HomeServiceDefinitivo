@@ -7,12 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.orm.SugarRecord;
+
 import java.util.LinkedList;
 import java.util.List;
 
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.BaseFragment;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.data.CategoriaDAO;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Categoria;
 
 
@@ -20,7 +21,6 @@ public class ListaCategoriasFragment extends BaseFragment {
 
     private List<Categoria> categoriaList;
     private AdapterCategoria adapter;
-    CategoriaDAO categoriaDAO;
 
     public ListaCategoriasFragment() {
     }
@@ -58,29 +58,23 @@ public class ListaCategoriasFragment extends BaseFragment {
 
     private void getCategorias() {
         showDialogWithMessage(getString(R.string.load_categorias));
-        categoriaDAO = new CategoriaDAO(getActivity());
-        categoriaList = categoriaDAO.getAll();
+        categoriaList = SugarRecord.listAll(Categoria.class);
         adapter.setCategorias(categoriaList);
         adapter.notifyDataSetChanged();
         dismissDialog();
     }
 
     private void popula() {
-        categoriaDAO = new CategoriaDAO(getActivity());
-        for (int i = 2; i < 5;i++) {
+        for (int i = 1; i < 4;i++) {
             Categoria categoria = new Categoria();
-            categoria.setId(i);
+            categoria.setId((long) i);
             categoria.setNome("categoria" + i);
             categoria.setDescricao("descricao" + i);
-            categoriaDAO.create(categoria);
+            SugarRecord.save(categoria);
         }
     }
 
     private  void limpaBD() {
-        categoriaDAO = new CategoriaDAO(getActivity());
-        List<Categoria> categorias = categoriaDAO.getAll();
-        for (Categoria cat : categorias) {
-            categoriaDAO.delete(cat);
-        }
+        SugarRecord.deleteAll(Categoria.class);
     }
 }
