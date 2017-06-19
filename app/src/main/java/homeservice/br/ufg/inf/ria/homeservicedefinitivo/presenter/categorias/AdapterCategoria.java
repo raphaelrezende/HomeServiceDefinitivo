@@ -53,7 +53,6 @@ public class AdapterCategoria extends RecyclerView.Adapter<AdapterCategoria.Cate
     public void onBindViewHolder(CategoriaViewHolder holder, int position) {
         final Categoria categoria = categorias.get(position);
         holder.nameView.setText(categoria.getNome());
-        holder.descriptionView.setText(categoria.getDescricao());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,12 +78,10 @@ public class AdapterCategoria extends RecyclerView.Adapter<AdapterCategoria.Cate
     public static class CategoriaViewHolder
             extends RecyclerView.ViewHolder {
         TextView nameView;
-        TextView descriptionView;
 
         CategoriaViewHolder(View itemView) {
             super(itemView);
             nameView = (TextView)itemView.findViewById(R.id.label_categoria_title);
-            descriptionView = (TextView)itemView.findViewById(R.id.label_categoria_desc);
         }
     }
 

@@ -65,11 +65,41 @@ public class ListaCategoriasFragment extends BaseFragment {
     }
 
     private void popula() {
-        for (int i = 1; i < 4;i++) {
+        List<String> nomes = new LinkedList<>();
+        nomes.add("Arquiteto");
+        nomes.add("Automação Residencial");
+        nomes.add("Chaveiro");
+        nomes.add("Decorador");
+        nomes.add("Dedetizador");
+        nomes.add("Desentupidor");
+        nomes.add("Eletricista");
+        nomes.add("Encanador");
+        nomes.add("Engenheiro");
+        nomes.add("Gesso e Drywall");
+        nomes.add("Impermeabilizador");
+        nomes.add("Jardinagem");
+        nomes.add("Limpeza Pós Obra");
+        nomes.add("Marceneiro");
+        nomes.add("Marido de aluguel");
+        nomes.add("Montador de móveis");
+        nomes.add("Mudanças e carretos");
+        nomes.add("Outros");
+        nomes.add("Paisagista");
+        nomes.add("Pedreiro");
+        nomes.add("Pintor");
+        nomes.add("Piscina");
+        nomes.add("Segurança eletrônica");
+        nomes.add("Serralheria e solda");
+        nomes.add("Tapeceiro");
+        nomes.add("Terraplanagem");
+        nomes.add("Vidraceiro");
+        criaCategorias(nomes);
+    }
+
+    private void criaCategorias(List<String> nomesCategorias) {
+        for (String nome : nomesCategorias) {
             Categoria categoria = new Categoria();
-            categoria.setId((long) i);
-            categoria.setNome("categoria" + i);
-            categoria.setDescricao("descricao" + i);
+            categoria.setNome(nome);
             SugarRecord.save(categoria);
         }
     }

@@ -84,11 +84,10 @@ public class ServicosFragment extends BaseFragment {
     }
 
     private void popula () {
-        for (int i = 2; i < 5;i++) {
+        for (int i = 1; i < 5;i++) {
             Servico servico = new Servico();
-            servico.setId((long) i);
-            servico.setNome("serviço" + i);
-            servico.setDescricao("descricao" + i);
+            servico.setNome("Serviço " + this.categoria.getNome() + " " + i);
+            servico.setDescricao("Descricao " + this.categoria.getNome()+ " " + i);
             servico.setPreco((double) i);
             servico.setCidade("cidade" + i);
             servico.setCategoria(this.categoria);
