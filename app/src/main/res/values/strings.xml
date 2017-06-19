@@ -9,6 +9,7 @@
 
     <string name="button_in">Entrar</string>
     <string name="button_cadastrar">Cadastrar</string>
+    <string name="button_avancar">Avançar</string>
 
     <string name="load_login">Verificando credenciais</string>
     <string name="load_categorias">Recuperando categorias</string>

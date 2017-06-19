@@ -11,11 +11,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.List;
 
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Servico;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.categorias.ListaCategoriasActivity;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.detalhamento.ServicoDetalhadoFragment;
 
 /**
  * Created by raphael on 18/05/17.
@@ -52,13 +55,13 @@ public class AdapterServicos extends RecyclerView.Adapter<AdapterServicos.Servic
         final Servico servico = servicos.get(position);
         holder.nameView.setText(servico.getNome());
         holder.descriptionView.setText(servico.getDescricao());
-//
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                abreDescricao(servico);
-//            }
-//        });
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                abreDescricao(servico);
+            }
+        });
     }
 
     @Override
@@ -86,16 +89,15 @@ public class AdapterServicos extends RecyclerView.Adapter<AdapterServicos.Servic
         }
     }
 
-//    private void abreDescricao(Servico servico) {
-//        Intent intent = new Intent(this.context, ServicoDetailActivity.class);
-//        EventBus.getDefault().postSticky(servico);
-//        context.startActivity(intent);
-//
-//
-//    }
-public ListaCategoriasActivity getActivity() {
-    return activity;
-}
+    private void abreDescricao(Servico servico) {
+        ServicoDetalhadoFragment fragment = new ServicoDetalhadoFragment();
+        EventBus.getDefault().postSticky(servico);
+        activity.initView(fragment);
+
+    }
+    public ListaCategoriasActivity getActivity() {
+        return activity;
+    }
 
     public void setActivity(ListaCategoriasActivity activity) {
         this.activity = activity;

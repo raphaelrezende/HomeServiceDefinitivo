@@ -1,0 +1,54 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.detalhamento.ServicoDetalhadoFragment"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/app_bar_main">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/relativedetalhes"
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tituloServicoDetalhado"
+            android:textStyle="bold"
+            android:textSize="@dimen/md_title_textsize"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/descricaoServicoDetalhado"
+            android:layout_below="@+id/tituloServicoDetalhado"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cidadeServicoDetalhado"
+            android:layout_below="@+id/descricaoServicoDetalhado"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/preco"
+            android:layout_below="@+id/cidadeServicoDetalhado"
+            android:text="Preço: "/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/precoServicoDetalhado"
+            android:layout_below="@+id/cidadeServicoDetalhado"
+            android:gravity="right"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/botaoAvancar"
+            android:text="@string/button_avancar"
+            android:layout_below="@+id/precoServicoDetalhado"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+</FrameLayout>
