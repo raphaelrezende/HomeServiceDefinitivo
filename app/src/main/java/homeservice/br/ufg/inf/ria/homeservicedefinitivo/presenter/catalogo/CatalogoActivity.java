@@ -1,4 +1,4 @@
-package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.categorias;
+package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,16 +11,20 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.orm.SugarContext;
 
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.BaseActivity;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.avisos.AvisosFragment;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.categorias.ListaCategoriasFragment;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.detalhamento.EnderecoServicoFragment;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.detalhamento.ServicoDetalhadoFragment;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.servicos.ServicosFragment;
 
-public class ListaCategoriasActivity extends BaseActivity
-        implements NavigationView.OnNavigationItemSelectedListener, ServicosFragment.OnFragmentInteractionListener {
+public class CatalogoActivity extends BaseActivity
+        implements NavigationView.OnNavigationItemSelectedListener, ServicosFragment.OnFragmentInteractionListener, ServicoDetalhadoFragment.CreateEnderecoListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,5 +103,12 @@ public class ListaCategoriasActivity extends BaseActivity
     @Override
     public void onFragmentInteraction(Uri uri) {
 
+    }
+
+    @Override
+    public void onCreateEndereco() {
+        EnderecoServicoFragment fragment = new EnderecoServicoFragment();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragment.show(fragmentTransaction,"Dialog");
     }
 }

@@ -20,7 +20,7 @@ import homeservice.br.ufg.inf.ria.homeservicedefinitivo.BaseFragment;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Categoria;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Servico;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.categorias.ListaCategoriasActivity;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.CatalogoActivity;
 
 
 public class ServicosFragment extends BaseFragment {
@@ -78,7 +78,7 @@ public class ServicosFragment extends BaseFragment {
         RecyclerView recyclerView = (RecyclerView) getView().findViewById(R.id.recycler_view_servicos);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         adapter = new AdapterServicos(listaServicos, getContext());
-        adapter.setActivity((ListaCategoriasActivity) getActivity());
+        adapter.setActivity((CatalogoActivity) getActivity());
         recyclerView.setAdapter(adapter);
     }
 

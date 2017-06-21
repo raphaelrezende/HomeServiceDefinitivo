@@ -17,7 +17,7 @@ import java.util.List;
 
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Servico;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.categorias.ListaCategoriasActivity;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.CatalogoActivity;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.detalhamento.ServicoDetalhadoFragment;
 
 /**
@@ -31,7 +31,7 @@ public class AdapterServicos extends RecyclerView.Adapter<AdapterServicos.Servic
      */
     private List<Servico> servicos;
 
-    private ListaCategoriasActivity activity;
+    private CatalogoActivity activity;
 
     /**
      * The application context
@@ -95,11 +95,11 @@ public class AdapterServicos extends RecyclerView.Adapter<AdapterServicos.Servic
         activity.initView(fragment);
 
     }
-    public ListaCategoriasActivity getActivity() {
+    public CatalogoActivity getActivity() {
         return activity;
     }
 
-    public void setActivity(ListaCategoriasActivity activity) {
+    public void setActivity(CatalogoActivity activity) {
         this.activity = activity;
     }
 
