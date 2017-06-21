@@ -1,4 +1,4 @@
-package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.categorias;
+package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.categorias;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;

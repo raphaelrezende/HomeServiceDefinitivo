@@ -1,4 +1,4 @@
-package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.servicos;
+package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.servicos;
 
 /**
  * Created by raphael on 23/05/17.
@@ -17,8 +17,8 @@ import java.util.List;
 
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Servico;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.categorias.ListaCategoriasActivity;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.detalhamento.ServicoDetalhadoFragment;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.categorias.ListaCategoriasActivity;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.detalhamento.ServicoDetalhadoFragment;
 
 /**
  * Created by raphael on 18/05/17.

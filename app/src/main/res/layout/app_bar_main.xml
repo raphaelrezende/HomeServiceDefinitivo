@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.categorias.ListaCategoriasActivity">
+    tools:context=".presenter.catalogo.categorias.ListaCategoriasActivity">
 
         <android.support.design.widget.AppBarLayout
             android:id="@+id/appbar"

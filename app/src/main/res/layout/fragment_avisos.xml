@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.avisos.AvisosFragment">
+    tools:context=".presenter.catalogo.avisos.AvisosFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"

@@ -7,7 +7,7 @@ import android.view.View;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.BaseActivity;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.FormProblemException;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.categorias.ListaCategoriasActivity;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.categorias.ListaCategoriasActivity;
 
 public class LoginActivity extends BaseActivity {
 

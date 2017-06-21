@@ -1,4 +1,4 @@
-package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.servicos;
+package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.servicos;
 
 import android.content.Context;
 import android.net.Uri;
@@ -8,7 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.orm.SugarRecord;
 
@@ -21,7 +20,7 @@ import homeservice.br.ufg.inf.ria.homeservicedefinitivo.BaseFragment;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Categoria;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Servico;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.categorias.ListaCategoriasActivity;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.categorias.ListaCategoriasActivity;
 
 
 public class ServicosFragment extends BaseFragment {

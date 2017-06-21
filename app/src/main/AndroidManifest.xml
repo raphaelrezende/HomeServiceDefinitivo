@@ -14,7 +14,7 @@
         <meta-data android:name="QUERY_LOG" android:value="true" />
         <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="homeservice.br.ufg.inf.ria.homeservicedefinitivo.model" />
         <activity
-            android:name=".presenter.categorias.ListaCategoriasActivity"
+            android:name=".presenter.catalogo.categorias.ListaCategoriasActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">

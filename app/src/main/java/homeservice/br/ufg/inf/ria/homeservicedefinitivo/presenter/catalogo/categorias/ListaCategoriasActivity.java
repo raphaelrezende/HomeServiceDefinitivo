@@ -1,4 +1,4 @@
-package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.categorias;
+package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.categorias;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,8 +16,8 @@ import com.orm.SugarContext;
 
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.BaseActivity;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.avisos.AvisosFragment;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.servicos.ServicosFragment;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.avisos.AvisosFragment;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.servicos.ServicosFragment;
 
 public class ListaCategoriasActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener, ServicosFragment.OnFragmentInteractionListener {
