@@ -11,12 +11,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.orm.SugarContext;
 
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.BaseActivity;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Servico;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.avisos.AvisosFragment;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.categorias.ListaCategoriasFragment;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.detalhamento.EnderecoServicoFragment;
@@ -24,7 +24,8 @@ import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.detal
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.servicos.ServicosFragment;
 
 public class CatalogoActivity extends BaseActivity
-        implements NavigationView.OnNavigationItemSelectedListener, ServicosFragment.OnFragmentInteractionListener, ServicoDetalhadoFragment.CreateEnderecoListener{
+        implements NavigationView.OnNavigationItemSelectedListener, ServicosFragment.OnFragmentInteractionListener,
+        ServicoDetalhadoFragment.CreateEnderecoListener, EnderecoServicoFragment.CreateDialogListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,9 +107,15 @@ public class CatalogoActivity extends BaseActivity
     }
 
     @Override
-    public void onCreateEndereco() {
+    public void onCreateEndereco(Servico servico) {
         EnderecoServicoFragment fragment = new EnderecoServicoFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragment.setServico(servico);
         fragment.show(fragmentTransaction,"Dialog");
+    }
+
+    @Override
+    public void onCreateDialog() {
+        //findViewById(R.id.botao_avancar_endereco);
     }
 }

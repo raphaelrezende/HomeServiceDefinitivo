@@ -19,13 +19,6 @@ public class Servico {
     public Servico() {
     }
 
-    public Servico(Long id, String nome, String descricao, Categoria categoria) {
-        this.id = id;
-        this.nome = nome;
-        this.descricao = descricao;
-        this.categoria = categoria;
-    }
-
     public Servico(Long id, String nome, String descricao, Double preco, String cidade, Categoria categoria) {
         this.id = id;
         this.nome = nome;

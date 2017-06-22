@@ -1,8 +1,6 @@
 package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.detalhamento;
 
 import android.app.Activity;
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,7 +35,7 @@ public class ServicoDetalhadoFragment extends BaseFragment {
         mButtonEndereco.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mListener.onCreateEndereco();
+                mListener.onCreateEndereco(servico);
             }
         });
         return view;
@@ -72,7 +70,7 @@ public class ServicoDetalhadoFragment extends BaseFragment {
     }
 
     public interface CreateEnderecoListener {
-        public void onCreateEndereco();
+        public void onCreateEndereco(Servico servico);
     }
 
 }

@@ -31,7 +31,8 @@
         <EditText
             android:layout_width="225dp"
             android:layout_height="wrap_content"
-            android:id="@+id/input_cep"/>
+            android:id="@+id/input_cep"
+            android:inputType="number"/>
     </LinearLayout>
 
     <LinearLayout
@@ -73,7 +74,8 @@
         <EditText
             android:layout_width="225dp"
             android:layout_height="wrap_content"
-            android:id="@+id/input_cidade" />
+            android:id="@+id/input_cidade"
+            android:enabled="false"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
