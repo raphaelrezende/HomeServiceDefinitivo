@@ -1,86 +1,154 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.detalhamento.EnderecoServicoFragment">
+    tools:context="homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.detalhamento.EnderecoServicoFragment"
+    android:orientation="vertical">
 
-    <RelativeLayout
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/relativeendereco">
+        android:layout_height="wrap_content"
+        android:text="Local de realização do serviço"
+        android:textStyle="bold"
+        android:textSize="@dimen/md_title_textsize"
+        android:id="@+id/label_titulo_realizacao"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Local de realização do serviço"
-            android:textStyle="bold"
-            android:textSize="@dimen/md_title_textsize"
-            android:id="@+id/label_titulo_realizacao"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" "
-            android:id="@+id/label_cep_space"
-            android:layout_below="@+id/label_titulo_realizacao"
-            android:textSize="@dimen/md_content_textsize"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="CEP: "
-            android:id="@+id/label_cep"
-            android:layout_below="@+id/label_cep_space"
-            android:textSize="@dimen/md_content_textsize"/>
+            android:id="@+id/label_cep"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:layout_width="225dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/input_cep"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Logradouro: "
-            android:id="@+id/label_logradouro"
-            android:layout_below="@+id/label_cep"
-            android:textSize="@dimen/md_content_textsize"/>
+            android:id="@+id/label_logradouro"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:layout_width="225dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/input_logradouro" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cidade: "
-            android:id="@+id/label_cidade"
-            android:layout_below="@+id/label_logradouro"
-            android:textSize="@dimen/md_content_textsize"/>
+            android:id="@+id/label_cidade"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:layout_width="225dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/input_cidade" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bairro: "
-            android:id="@+id/label_bairro"
-            android:layout_below="@+id/label_cidade"
-            android:textSize="@dimen/md_content_textsize"/>
+            android:id="@+id/label_bairro"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:layout_width="225dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/input_bairro" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Complemento: "
-            android:id="@+id/label_complemento"
-            android:layout_below="@+id/label_bairro"
-            android:textSize="@dimen/md_content_textsize"/>
+            android:id="@+id/label_complemento" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:layout_width="225dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/input_complemento" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Observações: "
-            android:id="@+id/label_observacao"
-            android:layout_below="@+id/label_complemento"
-            android:textSize="@dimen/md_content_textsize"/>
-        <EditText
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/input_cep"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/label_cep_space"
-            android:textSize="10dp"/>
-        <EditText
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/input_logradouro"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/input_cep"
-            android:textSize="10dp"/>
+            android:id="@+id/label_observacao"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
 
+        <EditText
+            android:layout_width="225dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/input_observacao" />
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="@string/button_avancar"
+            android:id="@+id/botao_avancar_endereco"/>
     </RelativeLayout>
 
-</FrameLayout>
+</LinearLayout>
