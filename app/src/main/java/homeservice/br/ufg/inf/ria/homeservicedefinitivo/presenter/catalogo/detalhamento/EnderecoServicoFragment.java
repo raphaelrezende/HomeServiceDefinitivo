@@ -1,12 +1,8 @@
 package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.detalhamento;
 
 import android.app.Activity;
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,8 +14,7 @@ import com.orm.SugarRecord;
 
 import org.greenrobot.eventbus.EventBus;
 
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.BaseFragment;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.FormProblemException;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.FormProblemException;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Endereco;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Servico;

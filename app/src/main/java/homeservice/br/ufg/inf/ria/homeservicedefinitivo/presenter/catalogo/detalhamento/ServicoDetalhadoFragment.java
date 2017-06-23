@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import org.greenrobot.eventbus.EventBus;
 
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.BaseFragment;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.BaseFragment;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Servico;
 

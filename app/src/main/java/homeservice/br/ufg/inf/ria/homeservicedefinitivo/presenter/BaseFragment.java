@@ -1,4 +1,4 @@
-package homeservice.br.ufg.inf.ria.homeservicedefinitivo;
+package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter;
 
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;

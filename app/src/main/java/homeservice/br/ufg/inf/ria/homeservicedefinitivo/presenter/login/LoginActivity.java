@@ -4,9 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.BaseActivity;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.BaseActivity;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.FormProblemException;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.FormProblemException;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.CatalogoActivity;
 
 public class LoginActivity extends BaseActivity {

@@ -15,11 +15,8 @@ import android.view.MenuItem;
 
 import com.orm.SugarContext;
 
-import org.greenrobot.eventbus.EventBus;
-
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.BaseActivity;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.BaseActivity;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Endereco;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Servico;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.avisos.AvisosFragment;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.categorias.ListaCategoriasFragment;

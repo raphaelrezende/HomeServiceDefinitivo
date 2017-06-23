@@ -12,7 +12,7 @@ import com.orm.SugarRecord;
 import java.util.LinkedList;
 import java.util.List;
 
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.BaseFragment;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.BaseFragment;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Categoria;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.CatalogoActivity;

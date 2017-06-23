@@ -1,13 +1,11 @@
 package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.pagamento;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import org.greenrobot.eventbus.EventBus;
 
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.BaseActivity;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.BaseActivity;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Endereco;
 
