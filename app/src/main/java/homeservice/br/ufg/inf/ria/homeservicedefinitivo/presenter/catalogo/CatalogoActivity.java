@@ -1,5 +1,6 @@
 package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,14 +15,18 @@ import android.view.MenuItem;
 
 import com.orm.SugarContext;
 
+import org.greenrobot.eventbus.EventBus;
+
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.BaseActivity;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Endereco;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Servico;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.avisos.AvisosFragment;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.categorias.ListaCategoriasFragment;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.detalhamento.EnderecoServicoFragment;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.detalhamento.ServicoDetalhadoFragment;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.servicos.ServicosFragment;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.pagamento.PagamentoActivity;
 
 public class CatalogoActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener, ServicosFragment.OnFragmentInteractionListener,
@@ -116,6 +121,7 @@ public class CatalogoActivity extends BaseActivity
 
     @Override
     public void onCreateDialog() {
-        //findViewById(R.id.botao_avancar_endereco);
+        Intent intent = new Intent(this, PagamentoActivity.class);
+        startActivity(intent);
     }
 }

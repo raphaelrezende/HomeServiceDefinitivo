@@ -19,6 +19,7 @@
     <string name="error_password_empty">Senha não pode ser vazia</string>
     <string name="error_password_small">Senha não pode ter menos que 6 caracteres</string>
     <string name="error_cep">Digite um CEP válido</string>
+    <string name="error_campos">Preencha todos os campos</string>
 
     <string name="drawer_inicio">Inicio</string>
     <string name="drawer_avisos">Avisos</string>

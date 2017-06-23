@@ -128,7 +128,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Observações: "
-            android:id="@+id/label_observacao"/>
+            android:id="@+id/label_observacoes"/>
         <View
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -137,7 +137,7 @@
         <EditText
             android:layout_width="225dp"
             android:layout_height="wrap_content"
-            android:id="@+id/input_observacao" />
+            android:id="@+id/input_observacoes" />
 
     </LinearLayout>
     <RelativeLayout
@@ -150,7 +150,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:text="@string/button_avancar"
-            android:id="@+id/botao_avancar_endereco"/>
+            android:id="@+id/botao_avancar_endereco" />
     </RelativeLayout>
 
 </LinearLayout>
