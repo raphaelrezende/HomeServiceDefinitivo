@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.pagamento.PagamentoActivity"
-    android:background="#FF0000">
+    tools:context="homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.pagamento.PagamentoActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,14 +13,85 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingBottom="@dimen/activity_vertical_margin"
+        android:layout_marginTop="85dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:orientation="vertical"
-        android:background="@color/md_divider_white"
+        android:background="@drawable/shape_borda"
         android:gravity="center">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/numero_cartao"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/label_endereco"/>
+            android:inputType="number"
+            android:hint="@string/hint_cartao"
+            android:drawableLeft="@drawable/ic_credit_card_black_24dp" />
+
+        <EditText
+            android:id="@+id/nome_cartao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_nome_cartao"
+            android:drawableLeft="@drawable/ic_person_outline_black_24dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/input_data_validade_mes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_cartao_mes"
+                android:inputType="number"
+                android:drawableLeft="@drawable/ic_date_range_black_24dp"
+                android:maxLength="2" />
+
+            <EditText
+                android:id="@+id/input_data_validade_ano"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="@string/hint_cartao_ano"
+                android:maxLength="2" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/input_cvv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="@string/hint_cartao_cvv"
+                android:maxLength="3"
+                android:drawableLeft="@drawable/ic_lock_outline_black_24dp" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/label_valor"
+                android:textSize="22dp"
+                android:layout_alignParentRight="true"
+                android:textStyle="bold"/>
+        </RelativeLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_pagar"
+            android:id="@+id/botao_apagar"
+            android:onClick="confirmaCompra"/>
+
     </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

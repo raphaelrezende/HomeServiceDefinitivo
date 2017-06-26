@@ -6,10 +6,16 @@
 
     <string name="hint_username">E-mail</string>
     <string name="hint_password">Senha</string>
+    <string name="hint_cartao">Número do cartão</string>
+    <string name="hint_nome_cartao">Nome impresso no cartão</string>
+    <string name="hint_cartao_mes">Mês</string>
+    <string name="hint_cartao_ano">Ano</string>
+    <string name="hint_cartao_cvv">Codigo de segurança</string>
 
     <string name="button_in">Entrar</string>
     <string name="button_cadastrar">Cadastrar</string>
     <string name="button_avancar">Avançar</string>
+    <string name="button_pagar">Pagar</string>
 
     <string name="load_login">Verificando credenciais</string>
     <string name="load_categorias">Recuperando categorias</string>

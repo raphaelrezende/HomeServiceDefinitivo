@@ -37,7 +37,9 @@
             android:name=".presenter.login.LoginActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"></activity>
         <activity android:name=".presenter.pagamento.PagamentoActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"></activity>
+            android:configChanges="keyboardHidden|orientation|screenSize">
+
+        </activity>
     </application>
 
 </manifest>

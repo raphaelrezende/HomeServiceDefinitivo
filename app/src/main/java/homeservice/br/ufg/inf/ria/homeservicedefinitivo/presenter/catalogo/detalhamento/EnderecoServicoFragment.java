@@ -44,6 +44,7 @@ public class EnderecoServicoFragment extends DialogFragment {
                 enviaEndereco();
                 if(endereco != null) {
                     EventBus.getDefault().postSticky(endereco);
+                    EventBus.getDefault().postSticky(servico);
                     mListener.onCreateDialog();
                 }
             }
