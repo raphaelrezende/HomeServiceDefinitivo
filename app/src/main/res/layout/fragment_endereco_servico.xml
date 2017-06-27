@@ -32,7 +32,8 @@
             android:layout_width="225dp"
             android:layout_height="wrap_content"
             android:id="@+id/input_cep"
-            android:inputType="number"/>
+            android:inputType="number"
+            android:maxLength="8"/>
     </LinearLayout>
 
     <LinearLayout

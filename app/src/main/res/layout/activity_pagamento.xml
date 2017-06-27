@@ -21,7 +21,7 @@
         android:gravity="center">
 
         <EditText
-            android:id="@+id/numero_cartao"
+            android:id="@+id/input_numero_cartao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
@@ -29,7 +29,7 @@
             android:drawableLeft="@drawable/ic_credit_card_black_24dp" />
 
         <EditText
-            android:id="@+id/nome_cartao"
+            android:id="@+id/input_nome_cartao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_nome_cartao"
@@ -90,7 +90,7 @@
             android:layout_height="wrap_content"
             android:text="@string/button_pagar"
             android:id="@+id/botao_apagar"
-            android:onClick="confirmaCompra"/>
+            android:onClick="realizaCompra"/>
 
     </LinearLayout>
 
