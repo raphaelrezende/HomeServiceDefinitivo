@@ -1,5 +1,6 @@
 package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.pagamento;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
@@ -17,6 +18,7 @@ import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Venda;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.BaseActivity;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Endereco;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.CatalogoActivity;
 
 public class PagamentoActivity extends BaseActivity {
 
@@ -59,6 +61,13 @@ public class PagamentoActivity extends BaseActivity {
         ConfirmacaoCompraFragment fragment = new ConfirmacaoCompraFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragment.show(fragmentTransaction,"Compra");
+    }
+
+    public void fechaCompra(View view) {
+        Intent intent = new Intent(this, CatalogoActivity.class);
+        finish();
+        startActivity(intent);
+
     }
 
 }

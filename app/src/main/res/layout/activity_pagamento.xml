@@ -26,6 +26,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:hint="@string/hint_cartao"
+            android:maxLength="16"
             android:drawableLeft="@drawable/ic_credit_card_black_24dp" />
 
         <EditText
