@@ -51,7 +51,7 @@ public class ConfirmacaoCompraFragment extends DialogFragment {
         labelObservacoes.setText("Observações: " + endereco.getObservacoes());
         Cartao cartao = venda.getCartao();
         TextView labelNumeroCartao = (TextView) view.findViewById(R.id.label_numero_cartao_venda);
-        labelNumeroCartao.setText("Número do cartão: ****-****-****-*" + cartao.getNumero().substring(13));
+        labelNumeroCartao.setText("Número do cartão: ****-****-****-" + cartao.getNumero().substring(12));
         TextView labelNomeCartao = (TextView) view.findViewById(R.id.label_nome_cartao_venda);
         labelNomeCartao.setText("Nome no cartão: " + cartao.getNome());
     }
