@@ -2,6 +2,9 @@ package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter;
 
 import android.content.Context;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -9,6 +12,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 
 /**
  * Created by raphael on 18/05/17.
@@ -57,9 +62,12 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
-    protected void criaBotaoVoltar() {
-        ActionBar actionbar = getSupportActionBar();
-        actionbar.setDisplayHomeAsUpEnabled(true);
+    public void initView(Fragment fragment, int idContainer){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        fragmentTransaction.replace(idContainer, fragment);
+        fragmentTransaction.commit();
     }
 
 }

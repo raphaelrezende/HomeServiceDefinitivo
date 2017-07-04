@@ -1,6 +1,7 @@
 package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.categorias;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +14,7 @@ import java.util.List;
 
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Categoria;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.CatalogoActivity;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.servicos.ServicosActivity;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.servicos.ServicosFragment;
 
 /**
@@ -31,7 +32,6 @@ public class AdapterCategoria extends RecyclerView.Adapter<AdapterCategoria.Cate
      * The application context
      */
     private Context context;
-    private CatalogoActivity activity;
 
     public AdapterCategoria(List<Categoria> categorias, Context context){
         this.categorias = categorias;
@@ -82,16 +82,8 @@ public class AdapterCategoria extends RecyclerView.Adapter<AdapterCategoria.Cate
     }
 
     private void posta(Categoria categoria) {
-        ServicosFragment fragment = new ServicosFragment();
+        Intent intent = new Intent(this.context, ServicosActivity.class);
         EventBus.getDefault().postSticky(categoria);
-        activity.initView(fragment);
-    }
-
-    public CatalogoActivity getActivity() {
-        return activity;
-    }
-
-    public void setActivity(CatalogoActivity activity) {
-        this.activity = activity;
+        context.startActivity(intent);
     }
 }

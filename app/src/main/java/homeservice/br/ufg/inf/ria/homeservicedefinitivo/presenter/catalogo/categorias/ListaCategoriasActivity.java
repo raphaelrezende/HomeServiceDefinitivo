@@ -1,4 +1,4 @@
-package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo;
+package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.categorias;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -25,9 +25,8 @@ import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.detal
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.servicos.ServicosFragment;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.pagamento.PagamentoActivity;
 
-public class CatalogoActivity extends BaseActivity
-        implements NavigationView.OnNavigationItemSelectedListener, ServicosFragment.OnFragmentInteractionListener,
-        ServicoDetalhadoFragment.CreateEnderecoListener, EnderecoServicoFragment.CreateDialogListener{
+public class ListaCategoriasActivity extends BaseActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +36,7 @@ public class CatalogoActivity extends BaseActivity
         setSupportActionBar(toolbar);
 
         ListaCategoriasFragment fragment = new ListaCategoriasFragment();
-        initView(fragment);
+        initView(fragment, R.id.container);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -65,7 +64,6 @@ public class CatalogoActivity extends BaseActivity
     @Override
     protected void onPause() {
         super.onPause();
-        finish();
     }
 
     @Override
@@ -84,10 +82,10 @@ public class CatalogoActivity extends BaseActivity
 
         if (id == R.id.nav_inicio) {
             ListaCategoriasFragment fragment = new ListaCategoriasFragment();
-            initView(fragment);
+            initView(fragment, R.id.container);
         } else if (id == R.id.nav_avisos) {
             AvisosFragment fragment = new AvisosFragment();
-            initView(fragment);
+            initView(fragment, R.id.container);
         } else if (id == R.id.nav_compras) {
 
         } else if (id == R.id.nav_editar) {
@@ -99,32 +97,5 @@ public class CatalogoActivity extends BaseActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    public void initView(Fragment fragment){
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-        fragmentTransaction.replace(R.id.container, fragment);
-        fragmentTransaction.commit();
-    }
-
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
-    }
-
-    @Override
-    public void onCreateEndereco(Servico servico) {
-        EnderecoServicoFragment fragment = new EnderecoServicoFragment();
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragment.setServico(servico);
-        fragment.show(fragmentTransaction,"Dialog");
-    }
-
-    @Override
-    public void onCreateDialog() {
-        Intent intent = new Intent(this, PagamentoActivity.class);
-        startActivity(intent);
     }
 }

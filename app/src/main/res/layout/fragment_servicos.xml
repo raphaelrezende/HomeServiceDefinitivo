@@ -7,17 +7,9 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/app_bar_main">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/relativedofragment"
-        android:layout_marginTop="?attr/actionBarSize">
-
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view_servicos"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-
-    </RelativeLayout>
 
 </FrameLayout>

@@ -7,7 +7,7 @@ import android.view.View;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.BaseActivity;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.FormProblemException;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.CatalogoActivity;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.categorias.ListaCategoriasActivity;
 
 public class LoginActivity extends BaseActivity {
 
@@ -65,7 +65,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void goToCategorias() {
-        Intent intent = new Intent(this, CatalogoActivity.class);
+        Intent intent = new Intent(this, ListaCategoriasActivity.class);
         startActivity(intent);
         //finish();
     }

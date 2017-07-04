@@ -5,6 +5,7 @@ package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.serv
  */
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +18,8 @@ import java.util.List;
 
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Servico;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.CatalogoActivity;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.categorias.ListaCategoriasActivity;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.detalhamento.ServicoDetalhadoActivity;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.detalhamento.ServicoDetalhadoFragment;
 
 /**
@@ -31,7 +33,6 @@ public class AdapterServicos extends RecyclerView.Adapter<AdapterServicos.Servic
      */
     private List<Servico> servicos;
 
-    private CatalogoActivity activity;
 
     /**
      * The application context
@@ -90,17 +91,11 @@ public class AdapterServicos extends RecyclerView.Adapter<AdapterServicos.Servic
     }
 
     private void abreDescricao(Servico servico) {
-        ServicoDetalhadoFragment fragment = new ServicoDetalhadoFragment();
+        Intent intent = new Intent(this.context, ServicoDetalhadoActivity.class);
         EventBus.getDefault().postSticky(servico);
-        activity.initView(fragment);
+        context.startActivity(intent);
 
-    }
-    public CatalogoActivity getActivity() {
-        return activity;
-    }
 
-    public void setActivity(CatalogoActivity activity) {
-        this.activity = activity;
     }
 
 }

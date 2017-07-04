@@ -20,7 +20,7 @@ import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.BaseFragment;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Categoria;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Servico;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.CatalogoActivity;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.categorias.ListaCategoriasActivity;
 
 
 public class ServicosFragment extends BaseFragment {
@@ -29,7 +29,6 @@ public class ServicosFragment extends BaseFragment {
     private List<Servico> listaServicos = new ArrayList<Servico>();
     private AdapterServicos adapter;
 
-    private OnFragmentInteractionListener mListener;
 
     public ServicosFragment() {
     }
@@ -52,33 +51,10 @@ public class ServicosFragment extends BaseFragment {
         getServicos();
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
-
     public void initRecycler() {
         RecyclerView recyclerView = (RecyclerView) getView().findViewById(R.id.recycler_view_servicos);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        adapter = new AdapterServicos(listaServicos, getContext());
-        adapter.setActivity((CatalogoActivity) getActivity());
+        adapter = new AdapterServicos(listaServicos, getActivity());
         recyclerView.setAdapter(adapter);
     }
 

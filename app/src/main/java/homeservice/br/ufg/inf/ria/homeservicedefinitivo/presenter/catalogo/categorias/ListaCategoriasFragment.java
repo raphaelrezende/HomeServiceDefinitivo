@@ -15,7 +15,6 @@ import java.util.List;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.BaseFragment;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Categoria;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.CatalogoActivity;
 
 
 public class ListaCategoriasFragment extends BaseFragment {
@@ -31,7 +30,6 @@ public class ListaCategoriasFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_lista_categorias, container, false);
         categoriaList = new LinkedList<>();
-        //setHasOptionsMenu(true);
         return view;
     }
 
@@ -52,8 +50,7 @@ public class ListaCategoriasFragment extends BaseFragment {
     public void initRecycler() {
         RecyclerView recyclerView = (RecyclerView) getView().findViewById(R.id.recycler_view_categorias);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        adapter = new AdapterCategoria(categoriaList, getContext());
-        adapter.setActivity((CatalogoActivity) getActivity());
+        adapter = new AdapterCategoria(categoriaList, getActivity());
         recyclerView.setAdapter(adapter);
     }
 

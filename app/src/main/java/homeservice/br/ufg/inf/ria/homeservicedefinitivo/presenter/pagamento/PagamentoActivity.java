@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.orm.SugarRecord;
@@ -12,14 +11,13 @@ import com.orm.SugarRecord;
 import org.greenrobot.eventbus.EventBus;
 
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Cartao;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Categoria;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Servico;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Venda;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.BaseActivity;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Endereco;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.FormProblemException;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.CatalogoActivity;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.categorias.ListaCategoriasActivity;
 
 public class PagamentoActivity extends BaseActivity {
 
@@ -35,7 +33,6 @@ public class PagamentoActivity extends BaseActivity {
         servico = EventBus.getDefault().removeStickyEvent(Servico.class);
         TextView textView = (TextView) findViewById(R.id.label_valor);
         textView.setText("R$ "+servico.getPreco().toString() + "0");
-
     }
 
     public void realizaCompra(View view) {
@@ -50,7 +47,7 @@ public class PagamentoActivity extends BaseActivity {
     }
 
     public void fechaCompra(View view) {
-        Intent intent = new Intent(this, CatalogoActivity.class);
+        Intent intent = new Intent(this, ListaCategoriasActivity.class);
         finish();
         startActivity(intent);
 
