@@ -21,4 +21,8 @@ public class ServicosActivity extends BaseActivity {
 
     }
 
-  }
+    @Override
+    protected void onResumeFragments() {
+        super.onResumeFragments();
+    }
+}

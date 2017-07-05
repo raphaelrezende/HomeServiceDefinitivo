@@ -31,6 +31,8 @@ public class PagamentoActivity extends BaseActivity {
         setContentView(R.layout.activity_pagamento);
         endereco = EventBus.getDefault().removeStickyEvent(Endereco.class);
         servico = EventBus.getDefault().removeStickyEvent(Servico.class);
+        EventBus.getDefault().postSticky(endereco);
+        EventBus.getDefault().postSticky(servico);
         TextView textView = (TextView) findViewById(R.id.label_valor);
         textView.setText("R$ "+servico.getPreco().toString() + "0");
     }
@@ -48,6 +50,7 @@ public class PagamentoActivity extends BaseActivity {
 
     public void fechaCompra(View view) {
         Intent intent = new Intent(this, ListaCategoriasActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         finish();
         startActivity(intent);
 

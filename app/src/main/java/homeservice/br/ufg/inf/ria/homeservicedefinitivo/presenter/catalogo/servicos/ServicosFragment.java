@@ -3,6 +3,7 @@ package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.serv
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -25,7 +26,7 @@ import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.categ
 
 public class ServicosFragment extends BaseFragment {
 
-    private Categoria categoria;
+    private Categoria categoria ;
     private List<Servico> listaServicos = new ArrayList<Servico>();
     private AdapterServicos adapter;
 
@@ -36,10 +37,8 @@ public class ServicosFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        categoria = EventBus.getDefault().removeStickyEvent(Categoria.class);
-
-        return inflater.inflate(R.layout.fragment_servicos, container, false);
-
+        View view = inflater.inflate(R.layout.fragment_servicos, container, false);
+        return view;
     }
 
     @Override
@@ -49,6 +48,13 @@ public class ServicosFragment extends BaseFragment {
         limpaBD();
         popula();
         getServicos();
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        categoria = EventBus.getDefault().removeStickyEvent(Categoria.class);
+        EventBus.getDefault().postSticky(categoria);
     }
 
     public void initRecycler() {
