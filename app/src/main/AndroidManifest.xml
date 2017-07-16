@@ -14,7 +14,7 @@
             android:value="banco_service.db" />
         <meta-data
             android:name="VERSION"
-            android:value="12" />
+            android:value="15" />
         <meta-data
             android:name="QUERY_LOG"
             android:value="true" />

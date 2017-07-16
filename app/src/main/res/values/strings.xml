@@ -17,6 +17,7 @@
     <string name="button_avancar">Avançar</string>
     <string name="button_pagar">Pagar</string>
     <string name="button_fechar">Fechar</string>
+    <string name="button_enviar">Enviar</string>
 
 
     <string name="load_login">Verificando credenciais</string>

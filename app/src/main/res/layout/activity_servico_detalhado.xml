@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.detalhamento.ServicoDetalhadoActivity">
+    tools:context="homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.detalhamento.ServicoDetalhadoActivity"
+    android:orientation="vertical">
 
     <FrameLayout
         android:id="@+id/container_servico_detalhado"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/md_notitle_vertical_padding"
+        android:paddingBottom="@dimen/md_notitle_vertical_padding"
+        android:paddingRight="@dimen/md_notitle_vertical_padding"
+        android:paddingTop="@dimen/md_content_padding_top"/>
 
-</RelativeLayout>
+    <FrameLayout
+        android:id="@+id/container_servico_detalhado_endereco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/md_notitle_vertical_padding"
+        android:paddingRight="@dimen/md_notitle_vertical_padding"/>
+
+</LinearLayout>

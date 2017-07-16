@@ -19,14 +19,14 @@ public class ServicoDetalhadoActivity extends BaseActivity implements ServicoDet
 
         ServicoDetalhadoFragment fragment = new ServicoDetalhadoFragment();
         initView(fragment, R.id.container_servico_detalhado);
+
     }
 
     @Override
     public void onCreateEndereco(Servico servico) {
         EnderecoServicoFragment fragment = new EnderecoServicoFragment();
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragment.setServico(servico);
-        fragment.show(fragmentTransaction,"Dialog");
+        initView(fragment,R.id.container_servico_detalhado_endereco);
     }
 
     @Override

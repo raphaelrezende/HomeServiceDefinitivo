@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Local de realização do serviço"
+        android:text="Insira local de realização do serviço"
         android:textStyle="bold"
         android:textSize="@dimen/md_title_textsize"
         android:id="@+id/label_titulo_realizacao"/>
@@ -54,7 +54,8 @@
         <EditText
             android:layout_width="225dp"
             android:layout_height="wrap_content"
-            android:id="@+id/input_logradouro" />
+            android:id="@+id/input_logradouro"
+            android:inputType="text"/>
 
     </LinearLayout>
     <LinearLayout
@@ -76,7 +77,7 @@
             android:layout_width="225dp"
             android:layout_height="wrap_content"
             android:id="@+id/input_cidade"
-            android:enabled="false"/>
+            android:inputType="text"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -96,7 +97,8 @@
         <EditText
             android:layout_width="225dp"
             android:layout_height="wrap_content"
-            android:id="@+id/input_bairro" />
+            android:id="@+id/input_bairro"
+            android:inputType="text"/>
 
     </LinearLayout>
     <LinearLayout
@@ -117,7 +119,8 @@
         <EditText
             android:layout_width="225dp"
             android:layout_height="wrap_content"
-            android:id="@+id/input_complemento" />
+            android:id="@+id/input_complemento"
+            android:inputType="text"/>
 
     </LinearLayout>
     <LinearLayout
@@ -138,7 +141,8 @@
         <EditText
             android:layout_width="225dp"
             android:layout_height="wrap_content"
-            android:id="@+id/input_observacoes" />
+            android:id="@+id/input_observacoes"
+            android:inputType="text"/>
 
     </LinearLayout>
     <RelativeLayout
@@ -150,7 +154,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:text="@string/button_avancar"
+            android:text="@string/button_enviar"
             android:id="@+id/botao_avancar_endereco" />
     </RelativeLayout>
 

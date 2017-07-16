@@ -14,12 +14,13 @@ import com.orm.SugarRecord;
 
 import org.greenrobot.eventbus.EventBus;
 
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.BaseFragment;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.FormProblemException;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Endereco;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Servico;
 
-public class EnderecoServicoFragment extends DialogFragment {
+public class EnderecoServicoFragment extends BaseFragment {
 
     private View view;
     private Button mButtonEndereco;
@@ -36,7 +37,6 @@ public class EnderecoServicoFragment extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_endereco_servico, container, false);
-        populaCidade(servico);
         mButtonEndereco = (Button) view.findViewById(R.id.botao_avancar_endereco);
         mButtonEndereco.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,11 +92,6 @@ public class EnderecoServicoFragment extends DialogFragment {
                 || "".equals(observacoes.getText().toString())) {
             throw new FormProblemException(getString(R.string.error_campos));
         }
-    }
-
-    private void populaCidade (Servico servico) {
-        EditText editText = (EditText) view.findViewById(R.id.input_cidade);
-        editText.setText(servico.getCidade());
     }
 
     private Endereco pegaEndereco() {

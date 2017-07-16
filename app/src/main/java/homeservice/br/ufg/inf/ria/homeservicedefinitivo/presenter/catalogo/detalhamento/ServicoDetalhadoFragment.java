@@ -36,6 +36,7 @@ public class ServicoDetalhadoFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 mListener.onCreateEndereco(servico);
+                mButtonEndereco.setVisibility(View.GONE);
             }
         });
         return view;
