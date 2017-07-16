@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import org.greenrobot.eventbus.EventBus;
@@ -57,6 +58,12 @@ public class AdapterServicos extends RecyclerView.Adapter<AdapterServicos.Servic
         holder.nameView.setText(servico.getNome());
         holder.descriptionView.setText(servico.getDescricao());
 
+        holder.nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                abreDescricao(servico);
+            }
+        });
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,11 +89,13 @@ public class AdapterServicos extends RecyclerView.Adapter<AdapterServicos.Servic
             extends RecyclerView.ViewHolder {
         TextView nameView;
         TextView descriptionView;
+        ImageButton nextButton;
 
         ServicoViewHolder(View itemView) {
             super(itemView);
             nameView = (TextView)itemView.findViewById(R.id.label_servicos_title);
             descriptionView = (TextView)itemView.findViewById(R.id.label_servicos_desc);
+            nextButton = (ImageButton) itemView.findViewById(R.id.botao_seguir);
         }
     }
 

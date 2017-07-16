@@ -89,8 +89,8 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button_pagar"
-            android:id="@+id/botao_apagar"
+            android:text="@string/button_finalizar_compra"
+            android:id="@+id/botao_pagar"
             android:onClick="realizaCompra"/>
 
     </LinearLayout>

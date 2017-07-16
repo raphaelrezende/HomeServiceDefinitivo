@@ -44,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/botaoAvancar"
-            android:text="@string/button_avancar"
+            android:text="@string/button_comprar"
             android:layout_below="@+id/precoServicoDetalhado"
             android:layout_alignParentRight="true"/>
 
