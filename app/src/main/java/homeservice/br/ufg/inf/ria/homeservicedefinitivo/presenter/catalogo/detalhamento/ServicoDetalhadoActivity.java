@@ -5,6 +5,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.badoualy.stepperindicator.StepperIndicator;
+
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Servico;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.BaseActivity;
@@ -27,12 +29,15 @@ public class ServicoDetalhadoActivity extends BaseActivity implements ServicoDet
         EnderecoServicoFragment fragment = new EnderecoServicoFragment();
         fragment.setServico(servico);
         initView(fragment,R.id.container_servico_detalhado_endereco);
+        StepperIndicator indicator = (StepperIndicator) findViewById(R.id.indicator);
+        indicator.setCurrentStep(1);
     }
 
     @Override
     public void onCreateDialog() {
+        StepperIndicator indicator = (StepperIndicator) findViewById(R.id.indicator);
+        indicator.setCurrentStep(2);
         Intent intent = new Intent(this, PagamentoActivity.class);
         startActivity(intent);
-
     }
 }

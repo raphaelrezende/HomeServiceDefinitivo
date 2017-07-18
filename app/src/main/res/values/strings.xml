@@ -42,5 +42,11 @@
     <string name="drawer_editar_perfil">Editar Perfil</string>
     <string name="drawer_sair">Sair</string>
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="stepLabels">
+        <item>Confirme Serviço</item>
+        <item>Endereço</item>
+        <item>Pagamento</item>
+        <item>Finalizado</item>
+    </string-array>
+
 </resources>

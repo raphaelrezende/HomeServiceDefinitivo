@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.TextView;
 
+import com.badoualy.stepperindicator.StepperIndicator;
 import com.orm.SugarRecord;
 
 import org.greenrobot.eventbus.EventBus;
@@ -35,6 +36,8 @@ public class PagamentoActivity extends BaseActivity {
         EventBus.getDefault().postSticky(servico);
         TextView textView = (TextView) findViewById(R.id.label_valor);
         textView.setText("R$ "+servico.getPreco().toString() + "0");
+        StepperIndicator indicator = (StepperIndicator) findViewById(R.id.indicator);
+        indicator.setCurrentStep(2);
     }
 
     public void realizaCompra(View view) {
@@ -45,6 +48,8 @@ public class PagamentoActivity extends BaseActivity {
             showAlert(e.getMessage());
             return;
         }
+        StepperIndicator indicator = (StepperIndicator) findViewById(R.id.indicator);
+        indicator.setCurrentStep(4);
         compra();
     }
 
