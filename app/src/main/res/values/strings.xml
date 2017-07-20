@@ -20,6 +20,7 @@
     <string name="button_fechar">Fechar</string>
     <string name="button_enviar">Enviar</string>
     <string name="button_comprar">Comprar</string>
+    <string name="button_data">Escolher data</string>
 
 
     <string name="load_login">Verificando credenciais</string>
@@ -48,5 +49,8 @@
         <item>Pagamento</item>
         <item>Finalizado</item>
     </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

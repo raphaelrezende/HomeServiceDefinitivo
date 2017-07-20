@@ -67,14 +67,19 @@ public class LoginActivity extends BaseActivity {
     private void goToCategorias() {
         Intent intent = new Intent(this, ListaCategoriasActivity.class);
         startActivity(intent);
-        //finish();
     }
-//
-//    public void goToCadastrar(View v) {
-//        Intent intent = new Intent(this, CadastroActivity.class);
-//        startActivity(intent);
-//        //finish();
-//
-//    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        dismissDialog();
+    }
+
+
+    public void goToCadastrar(View v) {
+        Intent intent = new Intent(this, CadastroUsuarioActivity.class);
+        startActivity(intent);
+
+    }
 }
 

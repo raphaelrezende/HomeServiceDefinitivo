@@ -14,7 +14,7 @@
             android:value="banco_service.db" />
         <meta-data
             android:name="VERSION"
-            android:value="15" />
+            android:value="16" />
         <meta-data
             android:name="QUERY_LOG"
             android:value="true" />
@@ -26,29 +26,32 @@
             android:name=".presenter.catalogo.categorias.ListaCategoriasActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".presenter.login.LoginActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize" />
+            android:configChanges="keyboardHidden|orientation|screenSize">
 
+        </activity>
         <activity
             android:name=".presenter.catalogo.servicos.ServicosActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:parentActivityName=".presenter.catalogo.categorias.ListaCategoriasActivity" />
-
-        <activity android:name=".presenter.catalogo.detalhamento.ServicoDetalhadoActivity"
+        <activity
+            android:name=".presenter.catalogo.detalhamento.ServicoDetalhadoActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:parentActivityName=".presenter.catalogo.servicos.ServicosActivity"/>
+            android:parentActivityName=".presenter.catalogo.servicos.ServicosActivity" />
         <activity
             android:name=".presenter.pagamento.PagamentoActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:parentActivityName= ".presenter.catalogo.detalhamento.ServicoDetalhadoActivity"/>
+            android:parentActivityName=".presenter.catalogo.detalhamento.ServicoDetalhadoActivity" />
+        <activity android:name=".presenter.login.CadastroUsuarioActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:parentActivityName=".presenter.login.LoginActivity"> <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
     </application>
 
 </manifest>
