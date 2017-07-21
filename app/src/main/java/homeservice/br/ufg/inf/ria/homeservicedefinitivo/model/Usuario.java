@@ -1,6 +1,7 @@
 package homeservice.br.ufg.inf.ria.homeservicedefinitivo.model;
 
 import com.orm.dsl.Table;
+import com.orm.dsl.Unique;
 
 /**
  * Created by Raphael on 20/07/2017.
@@ -10,6 +11,7 @@ import com.orm.dsl.Table;
 public class Usuario {
 
     private Long id;
+    @Unique
     private String email;
     private String senha;
     private String nome;

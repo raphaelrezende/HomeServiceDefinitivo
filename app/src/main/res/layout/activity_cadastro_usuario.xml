@@ -124,9 +124,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Data de nascimento: "
                         android:id="@+id/label_usuario_nascimento"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        android:textSize="@dimen/md_content_textsize"
+                        android:textStyle="bold"/>
                 </LinearLayout>
                 <RelativeLayout
                     android:layout_width="@dimen/input_cadastro"
@@ -139,6 +140,47 @@
                         android:id="@+id/button_calendario"
                         android:src="@drawable/ic_calendario_button"
                         android:layout_alignParentLeft="true"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sexo: " />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+                <RelativeLayout
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content">
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/radio_group"
+                        android:orientation="horizontal"
+                        android:layout_alignParentRight="true">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/radio_feminino"
+                            android:text="Feminino"/>
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/radio_masculino"
+                            android:text="Masculino"/>
+
+                    </RadioGroup>
                 </RelativeLayout>
 
             </LinearLayout>
@@ -213,7 +255,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:text="@string/button_cadastrar"
-                android:id="@+id/botao_usuario_cadastrar" />
+                android:id="@+id/botao_usuario_cadastrar"
+                android:onClick="cadastraUsuario"/>
         </RelativeLayout>
 
     </LinearLayout>

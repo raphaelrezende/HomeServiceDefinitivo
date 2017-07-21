@@ -4,6 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.orm.SugarContext;
+import com.orm.query.Condition;
+import com.orm.query.Select;
+
+import java.util.List;
+
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Usuario;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.BaseActivity;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.FormProblemException;
@@ -17,6 +24,7 @@ public class LoginActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        SugarContext.init(this);
     }
 
     public void login(View v){
@@ -37,7 +45,11 @@ public class LoginActivity extends BaseActivity {
         showDialogWithMessage(getString(R.string.load_login));
 
 
-        tryLogin(password,email);
+        try {
+            tryLogin(password,email);
+        } catch (FormProblemException e) {
+            showAlert(e.getMessage());
+        }
     }
 
 
@@ -55,13 +67,24 @@ public class LoginActivity extends BaseActivity {
     private void checkEmail() throws FormProblemException{
         String email = getStringFromEdit(R.id.username);
         if("".equals(email)){
-            throw new FormProblemException(getString(R.string.error_password_empty));
+            throw new FormProblemException(getString(R.string.error_email_empty));
         }
     }
 
-    private void tryLogin(String password, String email) {
+    private void tryLogin(String password, String email) throws FormProblemException {
         // Implementar a verificação de credenciais
-        goToCategorias();
+        List<Usuario> usuariosList = Select.from(Usuario.class).where(Condition.prop("email").like(email)).list();
+        dismissDialog();
+        if(usuariosList.size() > 0) {
+            Usuario usuario =  usuariosList.get(0);
+            if(usuario.getSenha().equalsIgnoreCase(password)) {
+                goToCategorias();
+            }else {
+                throw new FormProblemException(getString(R.string.error_fail_login));
+            }
+        }else {
+            throw new FormProblemException(getString(R.string.error_fail_login));
+        }
     }
 
     private void goToCategorias() {
@@ -73,6 +96,7 @@ public class LoginActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         dismissDialog();
+        setStringFromEdit(R.id.password,"");
     }
 
 

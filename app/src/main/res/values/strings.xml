@@ -27,11 +27,16 @@
     <string name="load_categorias">Recuperando categorias</string>
     <string name="load_servicos">Recuperando serviços</string>
 
-    <string name="error_email_empty">Email não pode ser vazio</string>
+    <string name="error_fail_login">E-mail ou senha incorretos</string>
+    <string name="error_email_empty">E-mail não pode ser vazio</string>
     <string name="error_password_empty">Senha não pode ser vazia</string>
     <string name="error_password_small">Senha não pode ter menos que 6 caracteres</string>
+    <string name="error_password_confirmacao">Confirmação de senha incorreta</string>
     <string name="error_cep">Digite um CEP válido</string>
     <string name="error_campos">Preencha todos os campos</string>
+    <string name="error_data">Preencha a data de nascimento</string>
+    <string name="error_cpf">CPF inválido</string>
+    <string name="error_sexo">Selecione o sexo</string>
     <string name="error_numero_cartao">Número do cartão inválido</string>
     <string name="error_mes">Mês inválido</string>
     <string name="error_ano">Ano inválido</string>
