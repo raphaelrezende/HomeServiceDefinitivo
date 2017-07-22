@@ -10,12 +10,12 @@ import com.orm.dsl.Unique;
 @Table
 public class Usuario {
 
-    private Long id;
     @Unique
     private String email;
+    private Long id;
     private String senha;
     private String nome;
-    private char sexo;
+    private String sexo;
     private String cpf;
     private String cidade;
     private String nascimento;
@@ -56,11 +56,11 @@ public class Usuario {
         this.nome = nome;
     }
 
-    public char getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(char sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 

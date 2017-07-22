@@ -1,29 +1,21 @@
 package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.categorias;
 
 import android.content.Intent;
-import android.net.Uri;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-
-import com.orm.SugarContext;
+import android.widget.TextView;
 
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.BaseActivity;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Servico;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.avisos.AvisosFragment;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.categorias.ListaCategoriasFragment;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.detalhamento.EnderecoServicoFragment;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.detalhamento.ServicoDetalhadoFragment;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.servicos.ServicosFragment;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.pagamento.PagamentoActivity;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.drawer.AvisosFragment;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.drawer.EditaUsuarioActivity;
 
 public class ListaCategoriasActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -44,11 +36,18 @@ public class ListaCategoriasActivity extends BaseActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        SugarContext.init(this);
-
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.bringToFront();
+
+        // Coloca o nome e email do usuario no drawer
+        final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        String nomeUsuario = sharedPref.getString("nome","HomeService");
+        String emailUsuario = sharedPref.getString("email", "HomeService");
+        TextView textViewNome = navigationView.getHeaderView(0).findViewById(R.id.label_drawer_nome);
+        TextView textViewEmail = navigationView.getHeaderView(0).findViewById(R.id.label_drawer_email);
+        textViewNome.setText(nomeUsuario);
+        textViewEmail.setText(emailUsuario);
     }
 
     @Override
@@ -57,6 +56,10 @@ public class ListaCategoriasActivity extends BaseActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.clear();
+            editor.apply();
             super.onBackPressed();
         }
     }
@@ -74,6 +77,7 @@ public class ListaCategoriasActivity extends BaseActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
 
         if (id == R.id.nav_inicio) {
             ListaCategoriasFragment fragment = new ListaCategoriasFragment();
@@ -84,8 +88,16 @@ public class ListaCategoriasActivity extends BaseActivity
         } else if (id == R.id.nav_compras) {
 
         } else if (id == R.id.nav_editar) {
-
+            Intent intent = new Intent(this, EditaUsuarioActivity.class);
+            startActivity(intent);
+            MenuItem inicio = navigationView.getMenu().findItem(R.id.nav_inicio);
+            inicio.setChecked(true);
+            onNavigationItemSelected(inicio);
         } else if (id == R.id.nav_sair) {
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.clear();
+            editor.apply();
             finish();
         }
 

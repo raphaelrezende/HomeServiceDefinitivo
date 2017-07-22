@@ -1,7 +1,9 @@
 package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.login;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 
 import com.orm.SugarContext;
@@ -20,6 +22,7 @@ public class LoginActivity extends BaseActivity {
 
     private final int MIN_PASSWORD = 6;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,9 +31,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     public void login(View v){
-
         hideKeyboard();
-
         try{
             checkEmail();
             checkPassword();
@@ -78,6 +79,11 @@ public class LoginActivity extends BaseActivity {
         if(usuariosList.size() > 0) {
             Usuario usuario =  usuariosList.get(0);
             if(usuario.getSenha().equalsIgnoreCase(password)) {
+                final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString("email", usuario.getEmail());
+                editor.putString("nome", usuario.getNome());
+                editor.apply();
                 goToCategorias();
             }else {
                 throw new FormProblemException(getString(R.string.error_fail_login));

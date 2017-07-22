@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        tools:context="homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.drawer.EditaUsuarioActivity">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nome: " />
+
+
+            <EditText
+                android:id="@+id/input_usuario_nome_editar"
+                android:layout_width="@dimen/input_cadastro"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:layout_marginLeft="@dimen/md_content_padding_bottom"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email: " />
+
+
+            <EditText
+                android:id="@+id/input_usuario_email_editar"
+                android:layout_width="@dimen/input_cadastro"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:layout_marginLeft="@dimen/md_content_padding_bottom"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CPF: " />
+
+
+            <EditText
+                android:id="@+id/input_usuario_cpf_editar"
+                android:layout_width="@dimen/input_cadastro"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:layout_marginLeft="@dimen/md_content_padding_bottom"
+                android:maxLength="11"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cidade: " />
+
+
+            <EditText
+                android:id="@+id/input_usuario_cidade_editar"
+                android:layout_width="@dimen/input_cadastro"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:layout_marginLeft="@dimen/md_content_padding_bottom"/>
+
+        </TableRow>
+        <TableRow android:layout_marginTop="8dp">
+            <TableLayout>
+                <TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nascimento: " />
+                </TableRow>
+                <TableRow>
+
+                    <ImageButton
+                        android:id="@+id/button_calendario_editar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="showDatePicker"
+                        android:src="@drawable/ic_calendario_button" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/label_usuario_nascimento_editar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/md_content_textsize"
+                        android:textStyle="bold" />
+                </TableRow>
+            </TableLayout>
+            <TableLayout
+                android:layout_gravity="center_horizontal">
+                <TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sexo: " />
+                </TableRow>
+                <TableRow
+                    android:layout_marginTop="6dp">
+                    <RadioGroup
+                        android:id="@+id/radio_group_editar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radio_feminino_editar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Feminino" />
+
+                        <RadioButton
+                            android:id="@+id/radio_masculino_editar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Masculino" />
+
+                    </RadioGroup>
+                </TableRow>
+            </TableLayout>
+        </TableRow>
+        <TableLayout
+            android:background="@drawable/shape_borda"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp">
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Senha: " />
+
+                <EditText
+                    android:layout_width="@dimen/input_cadastro"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/input_senha_edita"
+                    android:inputType="textPassword"/>
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Confirme a senha: " />
+
+                <EditText
+                    android:id="@+id/input_confirmacao_senha_edita"
+                    android:layout_width="@dimen/input_cadastro"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword" />
+            </TableRow>
+        </TableLayout>
+        <TableRow
+            android:layout_width="match_parent">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_atualizar"
+                android:id="@+id/botao_usuario_atualizar"
+                android:onClick="alteraUsuario"
+                android:layout_weight="1"/>
+        </TableRow>
+    </TableLayout>
+</ScrollView>

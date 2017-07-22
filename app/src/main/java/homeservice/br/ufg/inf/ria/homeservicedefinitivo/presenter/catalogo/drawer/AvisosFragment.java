@@ -1,4 +1,4 @@
-package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.avisos;
+package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.drawer;
 
 
 import android.os.Bundle;

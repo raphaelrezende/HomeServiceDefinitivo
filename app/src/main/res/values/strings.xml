@@ -3,7 +3,6 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="navigation_drawer_app_description">Aplicativo de serviços</string>
 
     <string name="hint_username">E-mail</string>
     <string name="hint_password">Senha</string>
@@ -21,6 +20,7 @@
     <string name="button_enviar">Enviar</string>
     <string name="button_comprar">Comprar</string>
     <string name="button_data">Escolher data</string>
+    <string name="button_atualizar">Atualizar</string>
 
 
     <string name="load_login">Verificando credenciais</string>
@@ -29,6 +29,7 @@
 
     <string name="error_fail_login">E-mail ou senha incorretos</string>
     <string name="error_email_empty">E-mail não pode ser vazio</string>
+    <string name="error_email_existente">E-mail já cadastrado</string>
     <string name="error_password_empty">Senha não pode ser vazia</string>
     <string name="error_password_small">Senha não pode ter menos que 6 caracteres</string>
     <string name="error_password_confirmacao">Confirmação de senha incorreta</string>

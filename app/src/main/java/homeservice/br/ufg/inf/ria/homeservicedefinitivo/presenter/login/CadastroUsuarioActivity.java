@@ -7,15 +7,17 @@ import android.app.DialogFragment;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.orm.SugarContext;
 import com.orm.SugarRecord;
+import com.orm.query.Condition;
+import com.orm.query.Select;
 
 import java.util.Calendar;
+import java.util.List;
 
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Usuario;
@@ -38,20 +40,30 @@ public class CadastroUsuarioActivity extends BaseActivity {
         DialogFragment newFragment = new DatePickerFragment();
         newFragment.show(getFragmentManager(),"datePicker");
     }
-    public void cadastraUsuario (View view) {
-        hideKeyboard();
 
+    public void cadastraUsuario (View view) throws FormProblemException {
+        hideKeyboard();
         try{
             checkCampos();
             checkPassword();
+            verificaDisponibilidade();
         } catch (FormProblemException e){
             showAlert(e.getMessage());
             return;
         }
-        showAlert("Cadastrado com sucesso");
         realizaCadastro();
+        showAlert("Cadastrado com sucesso!");
         finish();
 
+    }
+
+    // Verifica se o email do cadastro está disponivel
+    private void verificaDisponibilidade() throws FormProblemException {
+        List<Usuario> usuariosList = Select.from(Usuario.class).where(Condition.prop("email").like(
+                getStringFromEdit(R.id.input_usuario_email))).list();
+        if(usuariosList.size() > 0) {
+            throw new FormProblemException(getString(R.string.error_email_existente));
+        }
     }
 
     private void realizaCadastro() {
@@ -63,9 +75,9 @@ public class CadastroUsuarioActivity extends BaseActivity {
         RadioGroup rGroup = (RadioGroup) findViewById(R.id.radio_group);
         Usuario usuario = new Usuario();
         if(rGroup.getCheckedRadioButtonId() == R.id.radio_feminino) {
-            usuario.setSexo('f');
+            usuario.setSexo("feminino");
         } else{
-            usuario.setSexo('m');
+            usuario.setSexo("masculino");
         }
         usuario.setCidade(cidade);
         usuario.setCpf(cpf);
