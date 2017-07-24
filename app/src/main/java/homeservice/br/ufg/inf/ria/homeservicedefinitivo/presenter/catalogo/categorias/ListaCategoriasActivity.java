@@ -39,8 +39,11 @@ public class ListaCategoriasActivity extends BaseActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.bringToFront();
+        setUsernameDrawer(navigationView);
+    }
 
-        // Coloca o nome e email do usuario no drawer
+    // Coloca o nome e email do usuario no drawer
+    private void setUsernameDrawer(NavigationView navigationView) {
         final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         String nomeUsuario = sharedPref.getString("nome","HomeService");
         String emailUsuario = sharedPref.getString("email", "HomeService");

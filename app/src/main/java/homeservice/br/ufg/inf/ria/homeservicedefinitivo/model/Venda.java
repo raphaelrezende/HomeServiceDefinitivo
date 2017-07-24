@@ -10,10 +10,11 @@ import com.orm.dsl.Table;
 public class Venda {
 
     private Long id;
+    private Usuario usuario;
     private Servico servico;
     private Endereco endereco;
     private Cartao cartao;
-
+    private String dataHora;
     public Venda() {
     }
 
@@ -47,5 +48,21 @@ public class Venda {
 
     public void setCartao(Cartao cartao) {
         this.cartao = cartao;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getDataHora() {
+        return dataHora;
+    }
+
+    public void setDataHora(String dataHora) {
+        this.dataHora = dataHora;
     }
 }

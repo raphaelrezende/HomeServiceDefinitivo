@@ -25,9 +25,8 @@ public class ServicoDetalhadoActivity extends BaseActivity implements ServicoDet
     }
 
     @Override
-    public void onCreateEndereco(Servico servico) {
+    public void onCreateEndereco() {
         EnderecoServicoFragment fragment = new EnderecoServicoFragment();
-        fragment.setServico(servico);
         initView(fragment,R.id.container_servico_detalhado_endereco);
         StepperIndicator indicator = (StepperIndicator) findViewById(R.id.indicator);
         indicator.setCurrentStep(1);

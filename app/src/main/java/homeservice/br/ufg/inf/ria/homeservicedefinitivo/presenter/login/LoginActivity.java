@@ -73,7 +73,6 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void tryLogin(String password, String email) throws FormProblemException {
-        // Implementar a verificação de credenciais
         List<Usuario> usuariosList = Select.from(Usuario.class).where(Condition.prop("email").like(email)).list();
         dismissDialog();
         if(usuariosList.size() > 0) {

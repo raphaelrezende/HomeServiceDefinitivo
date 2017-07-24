@@ -1,8 +1,9 @@
 package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.detalhamento;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,22 +13,15 @@ import android.widget.Toast;
 
 import com.orm.SugarRecord;
 
-import org.greenrobot.eventbus.EventBus;
-
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.BaseFragment;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.FormProblemException;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Endereco;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Servico;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.BaseFragment;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.FormProblemException;
 
 public class EnderecoServicoFragment extends BaseFragment {
 
     private View view;
-    private Button mButtonEndereco;
     private CreateDialogListener mListener;
-    private Endereco endereco;
-    private Servico servico;
-
 
     public EnderecoServicoFragment() {
         // Required empty public constructor
@@ -37,16 +31,20 @@ public class EnderecoServicoFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_endereco_servico, container, false);
-        mButtonEndereco = (Button) view.findViewById(R.id.botao_avancar_endereco);
+        final Button mButtonEndereco = (Button) view.findViewById(R.id.botao_avancar_endereco);
         mButtonEndereco.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                enviaEndereco();
-                if(endereco != null) {
-                    EventBus.getDefault().postSticky(endereco);
-                    EventBus.getDefault().postSticky(servico);
-                    mListener.onCreateDialog();
+                try {
+                    checkCampos();
+                    checkCEP();
+                } catch (FormProblemException e) {
+                    Toast toast = Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT);
+                    toast.show();
+                    return;
                 }
+                salvaEndereco();
+                mListener.onCreateDialog();
             }
         });
         return view;
@@ -65,13 +63,6 @@ public class EnderecoServicoFragment extends BaseFragment {
 
     public interface CreateDialogListener{
         public void onCreateDialog();
-    }
-    public Servico getServico() {
-        return servico;
-    }
-
-    public void setServico(Servico servico) {
-        this.servico = servico;
     }
 
     private void checkCEP() throws FormProblemException {
@@ -94,37 +85,25 @@ public class EnderecoServicoFragment extends BaseFragment {
         }
     }
 
-    private Endereco pegaEndereco() {
-        Endereco ende = new Endereco();
+    private void salvaEndereco() {
+        Endereco endereco = new Endereco();
         EditText cep = (EditText) view.findViewById(R.id.input_cep);
-        ende.setCep(cep.getText().toString());
+        endereco.setCep(cep.getText().toString());
         EditText logradouro = (EditText) view.findViewById(R.id.input_logradouro);
-        ende.setLogradouro(logradouro.getText().toString());
+        endereco.setLogradouro(logradouro.getText().toString());
         EditText cidade = (EditText) view.findViewById(R.id.input_cidade);
-        ende.setCidade(cidade.getText().toString());
+        endereco.setCidade(cidade.getText().toString());
         EditText bairro = (EditText) view.findViewById(R.id.input_bairro);
-        ende.setBairro(bairro.getText().toString());
+        endereco.setBairro(bairro.getText().toString());
         EditText complemento = (EditText) view.findViewById(R.id.input_complemento);
-        ende.setComplemento(complemento.getText().toString());
+        endereco.setComplemento(complemento.getText().toString());
         EditText observacoes = (EditText) view.findViewById(R.id.input_observacoes);
-        ende.setObservacoes(observacoes.getText().toString());
+        endereco.setObservacoes(observacoes.getText().toString());
+        Long idEndereco = SugarRecord.save(endereco); // coloca o id do endereco no preferences
+        final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this.getContext());
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putLong("endereco",idEndereco);
+        editor.apply();
 
-        SugarRecord.save(ende); // Salva endereco no banco
-        ende = SugarRecord.last(Endereco.class);// Busca de novo para vir com id
-        return ende;
     }
-
-    public void enviaEndereco() {
-        try {
-            checkCampos();
-            checkCEP();
-        } catch (FormProblemException e) {
-            Toast toast = Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT);
-            toast.show();
-            return;
-        }
-        endereco = pegaEndereco();
-    }
-
-
 }

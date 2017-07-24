@@ -1,14 +1,20 @@
 package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.detalhamento;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import org.greenrobot.eventbus.EventBus;
+import com.orm.SugarContext;
+import com.orm.query.Condition;
+import com.orm.query.Select;
+
+import java.util.List;
 
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.BaseFragment;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
@@ -16,26 +22,22 @@ import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Servico;
 
 public class ServicoDetalhadoFragment extends BaseFragment {
 
-    private Servico servico;
-
     private CreateEnderecoListener mListener;
-    private View view;
-    private Button mButtonEndereco;
+
 
     public ServicoDetalhadoFragment() { }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        servico = EventBus.getDefault().removeStickyEvent(Servico.class);
 
-        view = inflater.inflate(R.layout.fragment_servico_detalhado, container, false);
+        View view = inflater.inflate(R.layout.fragment_servico_detalhado, container, false);
 
-        mButtonEndereco = (Button) view.findViewById(R.id.botaoAvancar);
+        final Button mButtonEndereco = (Button) view.findViewById(R.id.botaoAvancar);
         mButtonEndereco.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mListener.onCreateEndereco(servico);
+                mListener.onCreateEndereco();
                 mButtonEndereco.setVisibility(View.GONE);
             }
         });
@@ -60,6 +62,11 @@ public class ServicoDetalhadoFragment extends BaseFragment {
     }
 
     private void iniciaCampos() {
+        final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this.getContext());
+        String nomeServico = sharedPref.getString("servico", "HomeService");
+        SugarContext.init(this.getContext());
+        List<Servico> listaServicos = Select.from(Servico.class).where(Condition.prop("nome").like(nomeServico)).list();
+        Servico servico = listaServicos.get(0);
         TextView nameView = (TextView) getView().findViewById(R.id.tituloServicoDetalhado);
         nameView.setText(servico.getNome());
         TextView descriptionView = (TextView) getView().findViewById(R.id.descricaoServicoDetalhado);
@@ -71,7 +78,7 @@ public class ServicoDetalhadoFragment extends BaseFragment {
     }
 
     public interface CreateEnderecoListener {
-        public void onCreateEndereco(Servico servico);
+        public void onCreateEndereco();
     }
 
 }

@@ -1,6 +1,8 @@
 package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.pagamento;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,6 +34,15 @@ public class ConfirmacaoCompraFragment extends DialogFragment {
         view = inflater.inflate(R.layout.fragment_confirmacao_compra, container, false);
         venda = EventBus.getDefault().removeStickyEvent(Venda.class);
         populaVenda();
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this.getContext());
+        String nomeUsuario = preferences.getString("nome","HomeService");
+        String emailUsuario = preferences.getString("email", "HomeService");
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.clear();
+        editor.apply();
+        editor.putString("email", emailUsuario);
+        editor.putString("nome", nomeUsuario);
+        editor.apply();
         return view;
     }
 
@@ -39,16 +50,10 @@ public class ConfirmacaoCompraFragment extends DialogFragment {
         Endereco endereco = venda.getEndereco();
         TextView labelCep = (TextView) view.findViewById(R.id.label_cep_venda);
         labelCep.setText("CEP: " + endereco.getCep());
-        TextView labelLogradouro = (TextView) view.findViewById(R.id.label_logradouro_venda);
-        labelLogradouro.setText("Logradouro: " + endereco.getLogradouro());
-        TextView labelCidade = (TextView) view.findViewById(R.id.label_cidade_venda);
-        labelCidade.setText("Cidade: " + endereco.getCidade());
-        TextView labelBairro = (TextView) view.findViewById(R.id.label_bairro_venda);
-        labelBairro.setText("Bairro: " + endereco.getBairro());
         TextView labelComplemento = (TextView) view.findViewById(R.id.label_complemento_venda);
         labelComplemento.setText("Complemento: " + endereco.getComplemento());
-        TextView labelObservacoes = (TextView) view.findViewById(R.id.label_observacoes_venda);
-        labelObservacoes.setText("Observações: " + endereco.getObservacoes());
+        TextView labelDataHora = (TextView) view.findViewById(R.id.label_data_hora_venda);
+        labelDataHora.setText("Data: " + venda.getDataHora());
         Cartao cartao = venda.getCartao();
         TextView labelNumeroCartao = (TextView) view.findViewById(R.id.label_numero_cartao_venda);
         labelNumeroCartao.setText("Número do cartão: ****-****-****-" + cartao.getNumero().substring(12));

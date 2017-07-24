@@ -6,6 +6,8 @@ package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.serv
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,15 +15,11 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import org.greenrobot.eventbus.EventBus;
-
 import java.util.List;
 
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Servico;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.categorias.ListaCategoriasActivity;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.detalhamento.ServicoDetalhadoActivity;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.detalhamento.ServicoDetalhadoFragment;
 
 /**
  * Created by raphael on 18/05/17.
@@ -101,7 +99,10 @@ public class AdapterServicos extends RecyclerView.Adapter<AdapterServicos.Servic
 
     private void abreDescricao(Servico servico) {
         Intent intent = new Intent(this.context, ServicoDetalhadoActivity.class);
-        EventBus.getDefault().postSticky(servico);
+        final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this.context);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("servico", servico.getNome());
+        editor.apply();
         context.startActivity(intent);
 
 

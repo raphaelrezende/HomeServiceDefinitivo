@@ -38,8 +38,7 @@ public class ListaCategoriasFragment extends BaseFragment {
     public void onStart() {
         super.onStart();
         initRecycler();
-        limpaBD();
-        popula();
+        //SugarRecord.deleteAll(Categoria.class);
         getCategorias();
     }
 
@@ -57,11 +56,14 @@ public class ListaCategoriasFragment extends BaseFragment {
     }
 
     private void getCategorias() {
-        showDialogWithMessage(getString(R.string.load_categorias));
         categoriaList = SugarRecord.listAll(Categoria.class);
-        adapter.setCategorias(categoriaList);
-        adapter.notifyDataSetChanged();
-        dismissDialog();
+        if(categoriaList.size() > 0) {
+            adapter.setCategorias(categoriaList);
+            adapter.notifyDataSetChanged();
+        } else {
+            popula();
+            getCategorias();
+        }
     }
 
     private void popula() {
@@ -102,9 +104,5 @@ public class ListaCategoriasFragment extends BaseFragment {
             categoria.setNome(nome);
             SugarRecord.save(categoria);
         }
-    }
-
-    private  void limpaBD() {
-        SugarRecord.deleteAll(Categoria.class);
     }
 }

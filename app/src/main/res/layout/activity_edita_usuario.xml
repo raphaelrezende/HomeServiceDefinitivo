@@ -67,7 +67,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:layout_marginLeft="@dimen/md_content_padding_bottom"
-                android:maxLength="11"/>
+                android:maxLength="11"
+                android:enabled="false"/>
 
         </TableRow>
 

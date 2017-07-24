@@ -2,20 +2,19 @@ package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.cate
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.greenrobot.eventbus.EventBus;
-
 import java.util.List;
 
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Categoria;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.servicos.ServicosActivity;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.servicos.ServicosFragment;
 
 /**
  * Created by raphael on 18/05/17.
@@ -83,7 +82,10 @@ public class AdapterCategoria extends RecyclerView.Adapter<AdapterCategoria.Cate
 
     private void posta(Categoria categoria) {
         Intent intent = new Intent(this.context, ServicosActivity.class);
-        EventBus.getDefault().postSticky(categoria);
+        final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this.context);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("categoria", categoria.getNome());
+        editor.apply();
         context.startActivity(intent);
     }
 }

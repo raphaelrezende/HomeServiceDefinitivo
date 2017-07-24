@@ -1,18 +1,30 @@
 package homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.pagamento;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.TextView;
 
 import com.badoualy.stepperindicator.StepperIndicator;
+import com.orm.SugarContext;
 import com.orm.SugarRecord;
+import com.orm.query.Condition;
+import com.orm.query.Select;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.TimeZone;
+
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Cartao;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Servico;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Usuario;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Venda;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.BaseActivity;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
@@ -22,22 +34,25 @@ import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.categ
 
 public class PagamentoActivity extends BaseActivity {
 
-    private Endereco endereco;
     private Servico servico;
-    private Cartao cartao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pagamento);
-        endereco = EventBus.getDefault().removeStickyEvent(Endereco.class);
-        servico = EventBus.getDefault().removeStickyEvent(Servico.class);
-        EventBus.getDefault().postSticky(endereco);
-        EventBus.getDefault().postSticky(servico);
+        SugarContext.init(this);
         TextView textView = (TextView) findViewById(R.id.label_valor);
+        final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        servico = recuperaServico(sharedPref.getString("servico", "HomeService"));
         textView.setText("R$ "+servico.getPreco().toString() + "0");
         StepperIndicator indicator = (StepperIndicator) findViewById(R.id.indicator);
         indicator.setCurrentStep(2);
+    }
+
+    private Servico recuperaServico(String nomeServico){
+        List<Servico> listaServicos = Select.from(Servico.class).where(Condition.prop("nome").like(nomeServico)).list();
+        Servico servico = listaServicos.get(0);
+        return servico;
     }
 
     public void realizaCompra(View view) {
@@ -50,7 +65,7 @@ public class PagamentoActivity extends BaseActivity {
         }
         StepperIndicator indicator = (StepperIndicator) findViewById(R.id.indicator);
         indicator.setCurrentStep(4);
-        compra();
+        realizaCompra();
     }
 
     public void fechaCompra(View view) {
@@ -58,7 +73,6 @@ public class PagamentoActivity extends BaseActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         finish();
         startActivity(intent);
-
     }
 
     private void checkCampos() throws FormProblemException {
@@ -92,14 +106,15 @@ public class PagamentoActivity extends BaseActivity {
         }
     }
 
-    private void compra() {
+    private void realizaCompra() {
+        SugarRecord.deleteAll(Venda.class);
         String numeroCartao = getStringFromEdit(R.id.input_numero_cartao);
         String nomeCartao = getStringFromEdit(R.id.input_nome_cartao);
         String mes = getStringFromEdit(R.id.input_data_validade_mes);
         String ano = getStringFromEdit(R.id.input_data_validade_ano);
         String cvv = getStringFromEdit(R.id.input_cvv);
 
-        cartao = new Cartao();
+        Cartao cartao = new Cartao();
         cartao.setNumero(numeroCartao);
         cartao.setNome(nomeCartao);
         cartao.setMes(mes);
@@ -110,8 +125,20 @@ public class PagamentoActivity extends BaseActivity {
 
         Venda venda = new Venda();
         venda.setServico(servico);
+        final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        Endereco endereco = Select.from(Endereco.class).where(Condition.prop("id").like(sharedPref.getLong("endereco",0))).list().get(0);
         venda.setEndereco(endereco);
         venda.setCartao(cartao);
+
+        String emailUsuario = sharedPref.getString("email", "HomeService");
+        Usuario usuario =  Select.from(Usuario.class).where(Condition.prop("email").like(emailUsuario)).list().get(0);
+        venda.setUsuario(usuario);
+
+        DateFormat formatter = new SimpleDateFormat("dd MMM yyyy HH:mm:ss z");
+        formatter.setTimeZone(TimeZone.getTimeZone("CET"));
+        Date date = new Date();
+        venda.setDataHora(formatter.format(date));
+
         SugarRecord.save(venda);
         venda = SugarRecord.last(Venda.class);
 
