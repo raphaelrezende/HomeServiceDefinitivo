@@ -14,6 +14,7 @@ import org.greenrobot.eventbus.EventBus;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Cartao;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Endereco;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Usuario;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Venda;
 
 public class ConfirmacaoCompraFragment extends DialogFragment {
@@ -53,12 +54,19 @@ public class ConfirmacaoCompraFragment extends DialogFragment {
         TextView labelComplemento = (TextView) view.findViewById(R.id.label_complemento_venda);
         labelComplemento.setText("Complemento: " + endereco.getComplemento());
         TextView labelDataHora = (TextView) view.findViewById(R.id.label_data_hora_venda);
-        labelDataHora.setText("Data: " + venda.getDataHora());
+        labelDataHora.setText("Data/Hora: " + venda.getDataHora());
         Cartao cartao = venda.getCartao();
         TextView labelNumeroCartao = (TextView) view.findViewById(R.id.label_numero_cartao_venda);
         labelNumeroCartao.setText("Número do cartão: ****-****-****-" + cartao.getNumero().substring(12));
         TextView labelNomeCartao = (TextView) view.findViewById(R.id.label_nome_cartao_venda);
         labelNomeCartao.setText("Nome no cartão: " + cartao.getNome());
+        Usuario usuario = venda.getUsuario();
+        TextView labelNomeUsuario =  view.findViewById(R.id.label_nome_usuario_venda);
+        labelNomeUsuario.setText("Nome do cliente: " + usuario.getNome());
+        TextView labelEmailUsuario =  view.findViewById(R.id.label_email_usuario_venda);
+        labelEmailUsuario.setText("E-mail do cliente: " + usuario.getEmail());
+        TextView labelNomeServico =  view.findViewById(R.id.label_nome_servico);
+        labelNomeServico.setText("Serviço contratado: " + venda.getServico().getNome());
     }
 
 

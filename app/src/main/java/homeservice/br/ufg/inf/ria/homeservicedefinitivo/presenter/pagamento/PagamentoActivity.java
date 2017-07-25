@@ -18,6 +18,7 @@ import org.greenrobot.eventbus.EventBus;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
@@ -134,10 +135,13 @@ public class PagamentoActivity extends BaseActivity {
         Usuario usuario =  Select.from(Usuario.class).where(Condition.prop("email").like(emailUsuario)).list().get(0);
         venda.setUsuario(usuario);
 
-        DateFormat formatter = new SimpleDateFormat("dd MMM yyyy HH:mm:ss z");
-        formatter.setTimeZone(TimeZone.getTimeZone("CET"));
-        Date date = new Date();
-        venda.setDataHora(formatter.format(date));
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy/HH:mm:ss");
+        Date data = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(data);
+        Date data_atual = cal.getTime();
+        String data_completa = dateFormat.format(data_atual);
+        venda.setDataHora(data_completa);
 
         SugarRecord.save(venda);
         venda = SugarRecord.last(Venda.class);
