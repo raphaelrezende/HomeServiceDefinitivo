@@ -16,6 +16,7 @@ import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.BaseActivity;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.drawer.AvisosFragment;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.drawer.EditaUsuarioActivity;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.drawer.MinhasComprasActivity;
 
 public class ListaCategoriasActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -89,7 +90,11 @@ public class ListaCategoriasActivity extends BaseActivity
             AvisosFragment fragment = new AvisosFragment();
             initView(fragment, R.id.container);
         } else if (id == R.id.nav_compras) {
-
+            Intent intent = new Intent(this, MinhasComprasActivity.class);
+            startActivity(intent);
+            MenuItem inicio = navigationView.getMenu().findItem(R.id.nav_inicio);
+            inicio.setChecked(true);
+            onNavigationItemSelected(inicio);
         } else if (id == R.id.nav_editar) {
             Intent intent = new Intent(this, EditaUsuarioActivity.class);
             startActivity(intent);

@@ -51,11 +51,17 @@
         <activity
             android:name=".presenter.login.CadastroUsuarioActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:parentActivityName=".presenter.login.LoginActivity"/>
+            android:parentActivityName=".presenter.login.LoginActivity"
+            android:label="Cadastro usuário"/>
         <activity
             android:name=".presenter.catalogo.drawer.EditaUsuarioActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:parentActivityName=".presenter.catalogo.categorias.ListaCategoriasActivity"/>
+            android:parentActivityName=".presenter.catalogo.categorias.ListaCategoriasActivity"
+            android:label="Editar perfil"/>
+        <activity android:name=".presenter.catalogo.drawer.MinhasComprasActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:parentActivityName=".presenter.catalogo.categorias.ListaCategoriasActivity"
+            android:label="Minhas compras"/>
     </application>
 
 </manifest>
