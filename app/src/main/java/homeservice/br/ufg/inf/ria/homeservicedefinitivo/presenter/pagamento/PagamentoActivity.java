@@ -16,20 +16,18 @@ import com.orm.query.Select;
 
 import org.greenrobot.eventbus.EventBus;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.TimeZone;
 
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Cartao;
+import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Endereco;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Servico;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Usuario;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Venda;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.BaseActivity;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.R;
-import homeservice.br.ufg.inf.ria.homeservicedefinitivo.model.Endereco;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.FormProblemException;
 import homeservice.br.ufg.inf.ria.homeservicedefinitivo.presenter.catalogo.categorias.ListaCategoriasActivity;
 
@@ -108,7 +106,6 @@ public class PagamentoActivity extends BaseActivity {
     }
 
     private void realizaCompra() {
-        SugarRecord.deleteAll(Venda.class);
         String numeroCartao = getStringFromEdit(R.id.input_numero_cartao);
         String nomeCartao = getStringFromEdit(R.id.input_nome_cartao);
         String mes = getStringFromEdit(R.id.input_data_validade_mes);
@@ -144,7 +141,7 @@ public class PagamentoActivity extends BaseActivity {
         venda.setDataHora(data_completa);
 
         SugarRecord.save(venda);
-        venda = SugarRecord.last(Venda.class);
+        //venda = SugarRecord.last(Venda.class);
 
         EventBus.getDefault().postSticky(venda);
         ConfirmacaoCompraFragment fragment = new ConfirmacaoCompraFragment();

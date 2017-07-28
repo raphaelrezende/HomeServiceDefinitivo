@@ -70,8 +70,7 @@ public class AdapterCategoria extends RecyclerView.Adapter<AdapterCategoria.Cate
         this.categorias = categorias;
     }
 
-    public static class CategoriaViewHolder
-            extends RecyclerView.ViewHolder {
+    public static class CategoriaViewHolder extends RecyclerView.ViewHolder {
         TextView nameView;
 
         CategoriaViewHolder(View itemView) {
