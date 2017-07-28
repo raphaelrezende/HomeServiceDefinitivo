@@ -38,7 +38,8 @@
             android:layout_height="wrap_content"
             android:hint="@string/hint_nome_cartao"
             android:drawableLeft="@drawable/ic_person_outline_black_24dp"
-            android:inputType="text"/>
+            android:inputType="text"
+            android:nextFocusDown="@+id/input_data_validade_mes"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -52,7 +53,8 @@
                 android:hint="@string/hint_cartao_mes"
                 android:inputType="number"
                 android:drawableLeft="@drawable/ic_date_range_black_24dp"
-                android:maxLength="2" />
+                android:maxLength="2"
+                android:nextFocusDown="@+id/input_data_validade_ano"/>
 
             <EditText
                 android:id="@+id/input_data_validade_ano"
@@ -60,7 +62,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:hint="@string/hint_cartao_ano"
-                android:maxLength="2" />
+                android:maxLength="2"
+                android:nextFocusDown="@+id/input_cvv"/>
 
             <View
                 android:layout_width="0dp"
