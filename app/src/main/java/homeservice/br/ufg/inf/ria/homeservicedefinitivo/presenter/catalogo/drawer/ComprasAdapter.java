@@ -36,7 +36,7 @@ public class ComprasAdapter extends RecyclerView.Adapter<ComprasAdapter.ComprasV
     public void onBindViewHolder(ComprasViewHolder holder, int position) {
         holder.dataCompra.setText("Data e hora: " + listaVendas.get(position).getDataHora());
         holder.nomeServico.setText("Servico: " +listaVendas.get(position).getServico().getNome());
-        holder.precoServico.setText("Valor: " + listaVendas.get(position).getServico().getPreco());
+        holder.precoServico.setText("Valor: R$" + listaVendas.get(position).getServico().getPreco());
     }
 
     @Override
